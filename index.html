@@ -24,15 +24,33 @@
 </head>
 
 <body>
-	<div>
-		<button type="button" class="btn btn-primary" onclick="generateImages()">Generate Image</button>
-        <button type="button" class="btn btn-primary" onclick="clearImages()">Clear Images</button>
-	</div>
-    <div id="test">
+	<div class="container-fluid">
 
-    </div>
-    
-	
+		<div class="row">
+			<div class="col-4">
+			</div>
+			<div class="col-4">
+				<button type="button" class="btn btn-primary" onclick="generateImages(36);show();generateImagesArray(36)">Generate Image</button>
+				<button type="button" class="btn btn-primary" onclick="hide();clearImages(36)">Clear Images</button>
+			</div>
+			<div class="col-4">
+			</div>
+		</div>
+		<div class="row">
+            <div class="col-3">
+			</div>
+			<div class="col-6">
+				<div id="playground" class="container-fluid">
+
+                </div>
+			</div>
+			<div class="col-3">
+			</div>
+		</div>
+
+	</div>
+
+
 
 
 	<script src="assets/scripts/jquery-3.4.1.js"></script>
