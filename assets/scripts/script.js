@@ -1,19 +1,31 @@
-var random_images_array = [];
-var dir = "assets/images/icons/";
-var fileextension=".svg";
-$.ajax({
-    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-    url: dir,
-    success: function (data) {
-        //List all jpg files on the page
-            $(data).find("a:contains(" + fileextension + ")").each(function () {
-             var filename = this.href.replace(window.location.host,"").replace(window.location.pathname, "").replace("https://","").replace("http://","");              
+function getAllImagesArray() {
 
-            random_images_array.push(filename);
+    var all_images_array = [];
+    var dir = 'assets/images/icons/';
+    var fileextension = ['.svg', '.jpg', '.gif', '.png'];
 
-        });
-    }
-});
+    $.ajax({
+        url: dir,
+
+        error: function () {
+            alert('An error occurred!');
+        },
+
+        success: function (data) {
+            //List all files with defined extension (.svg)
+            for (var i = 0; i < fileextension.length; i++) {
+                $(data).find('a:contains(' + fileextension[i] + ')').each(function () {
+                    var filename = this.href.replace(window.location.host, '').replace(window.location.pathname, '').replace('https://', '').replace('http://', '');
+
+                    all_images_array.push(filename);
+                });
+            }
+        }
+    });
+    return all_images_array;
+}
+
+console.log(getAllImagesArray());
 
 
 
@@ -44,13 +56,13 @@ function shuffleArray(array) {
 function generateImagesArray(number_of_cards) {
     let random_images = [];
     let temp = "";
-    for (let i = 0; i < number_of_cards/2; i++) {
+    for (let i = 0; i < number_of_cards / 2; i++) {
         temp = getRandomImage(random_images_array);
         random_images.push(temp);
         random_images.push(temp);
     }
     shuffleArray(random_images);
-    console.log(random_images); 
+    console.log(random_images);
 }
 
 
@@ -72,16 +84,16 @@ function distributeCards_rows(number_of_cards) {
 function distributeCards_cards(number_of_cards) {
     distributeCards_rows(number_of_cards);
     for (let x = 0; x < number_of_cards; x++) {
-        document.getElementById("row_" + Math.floor(x/Math.sqrt(number_of_cards))).innerHTML += '<div id="img_' + x + '" class="col image"></div>';
+        document.getElementById("row_" + Math.floor(x / Math.sqrt(number_of_cards))).innerHTML += '<div id="img_' + x + '" class="col image"></div>';
     }
 }
 
 function show() {
-        $('.icon').show();
-    }
+    $('.icon').show();
+}
 
 function hide() {
-        $('.icon').hide();
-    }
+    $('.icon').hide();
+}
 
 distributeCards_cards(36);
