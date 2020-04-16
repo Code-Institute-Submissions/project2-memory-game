@@ -17,44 +17,47 @@
 
 
 	<!--CSS-->
-	<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"  type="text/css" />
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/flip-card.css" type="text/css" />
+    
 
 
-	<title>Memory Game</title>
+	<title>Memory Awesome</title>
 </head>
 
 <body>
-	<div class="container-fluid">
+	
 
-		<div class="row">
-			<div class="col-4">
-			</div>
-			<div class="col-4">
-				<button type="button" class="btn btn-primary" onclick="generateImages(36);show();generateImagesArray(36)">Generate Image</button>
-				<button type="button" class="btn btn-primary" onclick="hide();clearImages(36)">Clear Images</button>
-			</div>
-			<div class="col-4">
-			</div>
-		</div>
-		<div class="row">
-            <div class="col-3">
-			</div>
-			<div class="col-6">
-				<div id="playground" class="container-fluid">
+	<div class="flipCardContainer">
+        <div class="flipCard">
+            <div class="frontSide"><i class="fab fa-pied-piper-square"></i></div>
+            <div class="backSide"><i class="fab fa-font-awesome-flag"></i></div>
+        </div>
+    </div>
+    <div class="flipCardContainer">
+        <div class="flipCard">
+            <div class="frontSide"><i class="fab fa-algolia"></i></div>
+            <div class="backSide"><i class="fab fa-font-awesome-flag"></i></div>
+        </div>
+    </div>
+    <div class="flipCardContainer">
+        <div class="flipCard">
+            <div class="frontSide"><i class="fas fa-archive"></i></div>
+            <div class="backSide"><i class="fab fa-font-awesome-flag"></i></div>
+        </div>
+    </div>
+    <div class="flipCardContainer">
+        <div class="flipCard">
+            <div class="frontSide"><i class="fas fa-audio-description"></i></div>
+            <div class="backSide"><i class="fab fa-font-awesome-flag"></i></div>
+        </div>
+    </div>
 
-                </div>
-			</div>
-			<div class="col-3">
-			</div>
-		</div>
-
-	</div>
 
 
-
-
-	<script src="assets/scripts/jquery-3.4.1.js"></script>
-	<script src="assets/scripts/script.js"></script>
+	<script src="assets/scripts/flip-card.js"></script>
+	<script src="assets/scripts/game.js"></script>
 </body>
 
 </html>
