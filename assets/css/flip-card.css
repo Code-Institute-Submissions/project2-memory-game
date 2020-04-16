@@ -3,7 +3,8 @@
 .flipCardContainer {
   width: 100px;
   height: 100px;
-  margin: 0.1rem;
+  margin: 3px;
+  border: 0px;
   perspective: 1000px;
 }
 .flipCard {
@@ -25,18 +26,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.5rem;
 }
 
 .backSide {
   background-color: #517fa4;
-  font-size: 90px;
+  border: solid 1px #517fa4;
+  border-radius: 5px;
+  font-size: 80px;
   color: #fff;
-  border: solid 2px #517fa4;
 }
 .frontSide {
   background-color: #eee;
-  font-size: 90px;
+  border: solid 1px #eee;
+  border-radius: 5px;
+  font-size: 80px;
   color: #202020;
   transform: rotateY(180deg);
 }
