@@ -1643,6 +1643,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //create first-page
     function createFirstPage() {
+        grid.innerHTML=""
+
         var introduction = document.createElement('div')
         var button1 = document.createElement('div')
         var button2 = document.createElement('div')
@@ -1674,12 +1676,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //create second-page
     function createSecondPage() {       
+        
+        grid.innerHTML=""
+        
         var difficulty1 = document.createElement('div')
         var difficulty2 = document.createElement('div')
         var difficulty3 = document.createElement('div')
         var difficulty4 = document.createElement('div')
 
-        grid.innerHTML=""
 
         difficulty1.setAttribute('class','difficulty')
         difficulty1.innerHTML='<h2>16 cards</h2>'
@@ -1717,6 +1721,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //create play-board
     function createBoard(numberOfCards) {  
         
+        grid.innerHTML=""
+
         let winWidth = $(window).width();
         let winHeight = $(window).height();
         
@@ -1807,13 +1813,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    //createBoard(36);
-
     createFirstPage()
 
     //timer
-    var secondsToGo = 0;
-    var minutesToGo = 3;
+    var secondsToGo = 5;
+    var minutesToGo = 0;
     var hoursToGo =0;
     
     var totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo
@@ -1832,6 +1836,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(t);
             clearTimeout(sw);
             timeToGoDisplay.textContent = "EXPIRED";
+            gameOver();
         }
 
         timer();
@@ -1868,5 +1873,23 @@ document.addEventListener('DOMContentLoaded', () => {
         sw = setTimeout(add, 1000);
     }
     //stopWatch();
+
+    //gameOverPage
+    function gameOver() {
+        
+        grid.innerHTML=""
+
+        var gameOver = document.createElement('div')
+        var newGame = document.createElement('a')
+
+        gameOver.setAttribute('class','gameOver')
+        gameOver.innerHTML='<h2>Game Over</h2>'
+        grid.appendChild(gameOver);
+
+        newGame.setAttribute('class','newGame')
+        newGame.setAttribute('href', 'index.html')
+        newGame.innerHTML='<h4>New Game</h4>'
+        grid.appendChild(newGame);
+    }
 
 })
