@@ -1611,9 +1611,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
     const resultDisplay = document.querySelector('#result');
     const attemptsDisplay = document.querySelector('#attempts');
-    const timeDisplay = document.querySelector('#time');
+    const timeToGoDisplay = document.querySelector('#timeToGo');
+    const timeElapsedDisplay = document.querySelector('#timeElapsed');
     const square = document.querySelector('.square');
+    var timeElapsed
     var squareWidth = 0;
+    var challengeMode = 0;
+    var numberOfCards = 0;
     var Cards = [];
     var cardsChosen = [];
     var cardsChosenId = [];
@@ -1636,6 +1640,79 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementsByClassName('flipCardContainer')[i].style.fontSize =  Math.floor((squareWidth / Math.sqrt(Cards.length))*100) * 0.7 + 'vw'
         }
     })
+
+    //create first-page
+    function createFirstPage() {
+        var introduction = document.createElement('div')
+        var button1 = document.createElement('div')
+        var button2 = document.createElement('div')
+
+        introduction.setAttribute('class','introduction')
+        introduction.innerHTML='<h3>Game Intro</h3>'
+        grid.appendChild(introduction);
+
+        button1.setAttribute('class', 'button')
+        button1.innerHTML = '<h4>Normal Mode</h4>'
+        button1.addEventListener('click', NormalMode)
+        grid.appendChild(button1);
+        
+        button2.setAttribute('class', 'button')
+        button2.innerHTML = '<h4>Challenge Mode</h4>'
+        button2.addEventListener('click', ChallengeMode)
+        grid.appendChild(button2);
+    }
+
+    function NormalMode() {
+        challengeMode = 0
+        createSecondPage()
+    }
+
+    function ChallengeMode() {
+        challengeMode = 1
+        createSecondPage()
+    }
+
+    //create second-page
+    function createSecondPage() {       
+        var difficulty1 = document.createElement('div')
+        var difficulty2 = document.createElement('div')
+        var difficulty3 = document.createElement('div')
+        var difficulty4 = document.createElement('div')
+
+        grid.innerHTML=""
+
+        difficulty1.setAttribute('class','difficulty')
+        difficulty1.innerHTML='<h2>16 cards</h2>'
+        difficulty1.addEventListener('click', () => {
+            grid.innerHTML="";
+            createBoard(16);
+        })
+        grid.appendChild(difficulty1);
+
+        difficulty2.setAttribute('class','difficulty')
+        difficulty2.innerHTML='<h2>36 cards</h2>'
+        difficulty2.addEventListener('click', () => {
+            grid.innerHTML="";
+            createBoard(36);
+        })
+        grid.appendChild(difficulty2);
+
+        difficulty3.setAttribute('class','difficulty')
+        difficulty3.innerHTML='<h2>64 cards</h2>'
+        difficulty3.addEventListener('click', () => {
+            grid.innerHTML="";
+            createBoard(64);
+        })
+        grid.appendChild(difficulty3);
+
+        difficulty4.setAttribute('class','difficulty')
+        difficulty4.innerHTML='<h2>100 cards</h2>'
+        difficulty4.addEventListener('click', () => {
+            grid.innerHTML="";
+            createBoard(100);
+        })
+        grid.appendChild(difficulty4);
+    }
 
     //create play-board
     function createBoard(numberOfCards) {  
@@ -1688,8 +1765,11 @@ document.addEventListener('DOMContentLoaded', () => {
         resultDisplay.textContent = cardsWon.length
         attemptsDisplay.textContent = attempts.length
         if (cardsWon.length === Cards.length / 2) {
-            //clearTimeout(t);
-            resultDisplay.textContent = 'Congratulations! You found them all!';
+            if(challengeMode == 1) {
+                clearTimeout(t);
+            }
+            clearTimeout(sw);
+            resultDisplay.textContent = 'Congratulations! You found them all! Time Elapsed: ' + timeElapsed;
         }
     }
 
@@ -1705,13 +1785,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (timeDisplay.textContent === "EXPIRED") {
+        if (timeToGoDisplay.textContent === "EXPIRED") {
             return;
         }
+
         if (firstMove === 0) {
             firstMove = 1;
-            timer();
+            stopWatch();
+            if(challengeMode == 1) {
+                timer();
+            }
         }
+
         var cardId = this.getAttribute('data-id');
         cardsChosen.push(Cards[cardId]);
         cardsChosenId.push(cardId)
@@ -1722,28 +1807,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    createBoard(36);
+    //createBoard(36);
+
+    createFirstPage()
 
     //timer
-    var seconds = 0;
-    var minutes = 3;
-    var hours = 0;
+    var secondsToGo = 0;
+    var minutesToGo = 3;
+    var hoursToGo =0;
     
-    var totalTime = hours * 3600 + minutes * 60 + seconds
+    var totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo
 
     
 
     function deduct() {
-        totalTime--;
-        var h = Math.floor((totalTime % (60 * 60 * 24)) / (60 * 60));
-        var m = Math.floor((totalTime % (60 * 60)) / (60));
-        var s = Math.floor((totalTime % (60)));
+        totalTimeToGo--;
+        var h = Math.floor((totalTimeToGo % (60 * 60 * 24)) / (60 * 60));
+        var m = Math.floor((totalTimeToGo % (60 * 60)) / (60));
+        var s = Math.floor((totalTimeToGo % (60)));
 
-        timeDisplay.textContent = (h ? (h > 9 ? h : "0" + h) : "00") + ":" + (m ? (m > 9 ? m : "0" + m) : "00") + ":" + (s > 9 ? s : "0" + s);
+        timeToGoDisplay.textContent = (h ? (h > 9 ? h : "0" + h) : "00") + ":" + (m ? (m > 9 ? m : "0" + m) : "00") + ":" + (s > 9 ? s : "0" + s);
 
-        if (totalTime < 0) {
+        if (totalTimeToGo <= 0) {
             clearTimeout(t);
-            timeDisplay.textContent = "EXPIRED";
+            clearTimeout(sw);
+            timeToGoDisplay.textContent = "EXPIRED";
         }
 
         timer();
@@ -1753,5 +1841,32 @@ document.addEventListener('DOMContentLoaded', () => {
     function timer() {
         t = setTimeout(deduct, 1000);
     }
+
+
+     //stopwatch
+    var secondsElapsed = 0;
+    var minutesElapsed = 0;
+    var hoursElapsed = 0;
+
+    function add() {
+        secondsElapsed++;
+        if (secondsElapsed >= 60) {
+            secondsElapsed = 0;
+            minutesElapsed++;
+            if (minutesElapsed >= 60) {
+                minutesElapsed = 0;
+                hoursElapsed++;
+            }
+        }
+
+        //timeElapsedDisplay.textContent = (hoursElapsed ? (hoursElapsed > 9 ? hoursElapsed : "0" + hoursElapsed) : "00") + ":" + (minutesElapsed ? (minutesElapsed > 9 ? minutesElapsed : "0" + minutesElapsed) : "00") + ":" + (secondsElapsed > 9 ? secondsElapsed : "0" + secondsElapsed);
+        timeElapsed = (hoursElapsed ? (hoursElapsed > 9 ? hoursElapsed : "0" + hoursElapsed) : "00") + ":" + (minutesElapsed ? (minutesElapsed > 9 ? minutesElapsed : "0" + minutesElapsed) : "00") + ":" + (secondsElapsed > 9 ? secondsElapsed : "0" + secondsElapsed)
+
+        stopWatch();
+    }
+    function stopWatch() {
+        sw = setTimeout(add, 1000);
+    }
+    //stopWatch();
 
 })
