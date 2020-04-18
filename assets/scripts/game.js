@@ -1612,18 +1612,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDisplay = document.querySelector('#result');
     const attemptsDisplay = document.querySelector('#attempts');
     const timeDisplay = document.querySelector('#time');
-    const Cards = cardsArray(20);
+    const square = document.querySelector('.square');
+    var squareWidth = 0;
+    var Cards = [];
     var cardsChosen = [];
     var cardsChosenId = [];
     var cardsWon = [];
     var attempts = [];
     var firstMove = 0;
 
+    //window resize
+    window.addEventListener('resize', function() {
+        let winWidth = $(window).width();
+        let winHeight = $(window).height();
+        if(winWidth > winHeight) {
+            square.style.width = Math.floor(((winHeight-150)/winWidth)*100) + '%'
+            squareWidth = (winHeight-150)/winWidth
+        } else {
+            square.style.width = '95%'
+            squareWidth = 0.95
+        }
+        for (let i=0; i < Cards.length; i++) {
+        document.getElementsByClassName('flipCardContainer')[i].style.fontSize =  Math.floor((squareWidth / Math.sqrt(Cards.length))*100) * 0.7 + 'vw'
+        }
+    })
+
     //create play-board
-    function createBoard() {
+    function createBoard(numberOfCards) {  
+        
+        let winWidth = $(window).width();
+        let winHeight = $(window).height();
+        
+        if(winWidth > winHeight) {
+            square.style.width = Math.floor(((winHeight-150)/winWidth)*100) + '%'
+            squareWidth = (winHeight-150)/winWidth
+        } else {
+            square.style.width = '95%'
+            squareWidth = 0.95
+        }
+        
+        Cards = cardsArray(numberOfCards)
+
         for (let i = 0; i < Cards.length; i++) {
             var card = document.createElement('div');
             card.setAttribute('class', 'flipCardContainer card');
+            card.style.width = Math.floor((1 / Math.sqrt(Cards.length))*100) - 1 + '%'
+            card.style.height = Math.floor((1 / Math.sqrt(Cards.length))*100) - 1 + '%'
+            card.style.fontSize = Math.floor((squareWidth / Math.sqrt(Cards.length))*100) * 0.7 + 'vw'
             card.innerHTML = '<div class= "flipCard"><div class="frontSide">' + Cards[i] + '</div><div class="backSide"><i class="fab fa-font-awesome-flag"></i></div></div>';
             card.setAttribute('data-id', i);
             card.addEventListener('click', flipCard);
@@ -1670,13 +1705,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        //if (timeDisplay.textContent === "EXPIRED") {
-        //return;
-        //}
-        //if (firstMove === 0) {
-        //firstMove = 1;
-        //timer();
-        //}
+        if (timeDisplay.textContent === "EXPIRED") {
+            return;
+        }
+        if (firstMove === 0) {
+            firstMove = 1;
+            timer();
+        }
         var cardId = this.getAttribute('data-id');
         cardsChosen.push(Cards[cardId]);
         cardsChosenId.push(cardId)
@@ -1687,106 +1722,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    createBoard(20);
+    createBoard(36);
+
+    //timer
+    var seconds = 0;
+    var minutes = 3;
+    var hours = 0;
+    
+    var totalTime = hours * 3600 + minutes * 60 + seconds
+
+    
+
+    function deduct() {
+        totalTime--;
+        var h = Math.floor((totalTime % (60 * 60 * 24)) / (60 * 60));
+        var m = Math.floor((totalTime % (60 * 60)) / (60));
+        var s = Math.floor((totalTime % (60)));
+
+        timeDisplay.textContent = (h ? (h > 9 ? h : "0" + h) : "00") + ":" + (m ? (m > 9 ? m : "0" + m) : "00") + ":" + (s > 9 ? s : "0" + s);
+
+        if (totalTime < 0) {
+            clearTimeout(t);
+            timeDisplay.textContent = "EXPIRED";
+        }
+
+        timer();
+    }
+
+
+    function timer() {
+        t = setTimeout(deduct, 1000);
+    }
 
 })
-
-// function getAllImagesArray() {
-
-//     var all_images_array = [];
-//     var dir = 'assets/images/icons/';
-//     var fileextension = ['.svg', '.jpg', '.gif', '.png'];
-
-//     $.ajax({
-//         url: dir,
-
-//         error: function () {
-//             alert('An error occurred!');
-//         },
-
-//         success: function (data) {
-//             //List all files with defined extension (.svg)
-//             for (var i = 0; i < fileextension.length; i++) {
-//                 $(data).find('a:contains(' + fileextension[i] + ')').each(function () {
-//                     var filename = this.href.replace(window.location.host, '').replace(window.location.pathname, '').replace('https://', '').replace('http://', '');
-
-//                     all_images_array.push(filename);
-//                 });
-//             }
-//         }
-//     });
-//     return all_images_array;
-// }
-
-// console.log(getAllImagesArray());
-
-
-
-// function getRandomImage(imgAr, path) {
-//     path = path || 'assets/images/icons/'; // default path here
-//     var num = Math.floor(Math.random() * imgAr.length);
-//     var img = imgAr[num];
-//     var imgStr = '<img class="icon" src="' + path + img + '" alt = "' + img + '">';
-//     return imgStr;
-// }
-
-// function generateImages(number_of_cards) {
-//     for (let i = 0; i < number_of_cards; i++) {
-//         document.getElementById("img_" + i).innerHTML += getRandomImage(random_images_array);
-//     }
-// }
-
-
-// function shuffleArray(array) {
-//     for (var i = array.length - 1; i > 0; i--) {
-//         var j = Math.floor(Math.random() * (i + 1));
-//         var temp = array[i];
-//         array[i] = array[j];
-//         array[j] = temp;
-//     }
-// }
-
-// function generateImagesArray(number_of_cards) {
-//     let random_images = [];
-//     let temp = "";
-//     for (let i = 0; i < number_of_cards / 2; i++) {
-//         temp = getRandomImage(random_images_array);
-//         random_images.push(temp);
-//         random_images.push(temp);
-//     }
-//     shuffleArray(random_images);
-//     console.log(random_images);
-// }
-
-
-// function clearImages(number_of_cards) {
-//     for (let i = 0; i < number_of_cards; i++) {
-//         document.getElementById("img_" + i).innerHTML = "";
-//     }
-// }
-
-
-// function distributeCards_rows(number_of_cards) {
-//     let HTMLstring = ""
-//     for (let y = 0; y < Math.sqrt(number_of_cards); y++) {
-//         HTMLstring = HTMLstring + '<div id = "row_' + y + '" class="row"></div>';
-//     }
-//     document.getElementById("playground").innerHTML = HTMLstring;
-// }
-
-// function distributeCards_cards(number_of_cards) {
-//     distributeCards_rows(number_of_cards);
-//     for (let x = 0; x < number_of_cards; x++) {
-//         document.getElementById("row_" + Math.floor(x / Math.sqrt(number_of_cards))).innerHTML += '<div id="img_' + x + '" class="col image"></div>';
-//     }
-// }
-
-// function show() {
-//     $('.icon').show();
-// }
-
-// function hide() {
-//     $('.icon').hide();
-// }
-
-// distributeCards_cards(36);

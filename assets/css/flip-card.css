@@ -1,9 +1,7 @@
 /* Styles for flip-card effect */
 
 .flipCardContainer {
-  width: 100px;
-  height: 100px;
-  margin: 3px;
+  margin: 0.5%;
   border: 0px;
   perspective: 1000px;
 }
@@ -32,14 +30,12 @@
   background-color: #517fa4;
   border: solid 1px #517fa4;
   border-radius: 5px;
-  font-size: 80px;
   color: #fff;
 }
 .frontSide {
-  background-color: #eee;
-  border: solid 1px #eee;
+  background-color: #fff;
+  border: solid 1px #fff;
   border-radius: 5px;
-  font-size: 80px;
   color: #202020;
   transform: rotateY(180deg);
 }
