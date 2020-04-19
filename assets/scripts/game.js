@@ -1726,7 +1726,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('class', 'flipCardContainer card');
             card.style.width = Math.floor((1 / Math.sqrt(Cards.length))*100) - 1 + '%'
             card.style.height = Math.floor((1 / Math.sqrt(Cards.length))*100) - 1 + '%'
-            card.style.fontSize = Math.floor((squareWidth / Math.sqrt(Cards.length))*100) * 0.7 + 'vw'
+            card.style.fontSize = (squareWidth / Math.sqrt(Cards.length)) * 40 + 'rem'
             card.innerHTML = '<div class= "flipCard"><div class="frontSide">' + Cards[i] + '</div><div class="backSide"><i class="fab fa-font-awesome-flag"></i></div></div>';
             card.setAttribute('data-id', i);
             card.addEventListener('click', flipCard);
@@ -1741,8 +1741,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1]) {
             //alert('You found a match')
-            cards[optionOneId].innerHTML = '<div class= "flipCard"><div class="frontSide"></div><div class="backSide"></i></div></div>';
-            cards[optionTwoId].innerHTML = '<div class= "flipCard"><div class="frontSide"></div><div class="backSide"></i></div></div>';
+            //cards[optionOneId].innerHTML = '<div class= "flipCard"><div class="frontSide"></div><div class="backSide"></i></div></div>';
+            //cards[optionTwoId].innerHTML = '<div class= "flipCard"><div class="frontSide"></div><div class="backSide"></i></div></div>';
+            cards[optionOneId].style.visibility = "hidden"
+            cards[optionTwoId].style.visibility = "hidden"
             cardsWon.push(cardsChosen)
             attempts.push(cardsChosen)
         } else {

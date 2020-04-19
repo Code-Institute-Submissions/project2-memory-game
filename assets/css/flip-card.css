@@ -24,18 +24,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
 }
 
 .backSide {
-  background-color: #517fa4;
-  border: solid 1px #517fa4;
+  background-color: green;
+  border: solid 1px green;
   border-radius: 5px;
   color: #fff;
 }
+
+.backSide:hover {
+    background-color: rgb(0,150,0);
+}
+
 .frontSide {
   background-color: #fff;
   border: solid 1px #fff;
   border-radius: 5px;
-  color: #202020;
+  color: green;
   transform: rotateY(180deg);
 }
