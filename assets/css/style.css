@@ -4,9 +4,22 @@
   box-sizing: border-box;
 }
 
-body {
-    background-color: #eee;
-    height: 100vh;
+header {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+    color: white;
+}
+
+
+.hero-image {
+  background-image: url("../images/background.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 a {
@@ -15,6 +28,12 @@ a {
 
 a:hover {
    text-decoration: none; 
+}
+
+.game-container {
+    margin: auto;
+    top: 100px;
+    position: relative;
 }
 
 .square {
@@ -39,7 +58,7 @@ a:hover {
 .introduction {
     display: flex;
     width: 100%;
-    height: 90%;
+    height: 80%;
 }
 
 .introduction h3 {

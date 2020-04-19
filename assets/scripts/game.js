@@ -1613,9 +1613,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const attemptsDisplay = document.querySelector('#attempts');
     const timeToGoDisplay = document.querySelector('#timeToGo');
     const timeElapsedDisplay = document.querySelector('#timeElapsed');
-    const square = document.querySelector('.square');
+    
     var timeElapsed
-    var squareWidth = 0;
+    
     var challengeMode = 0;
     var numberOfCards = 0;
     var Cards = [];
@@ -1625,21 +1625,6 @@ document.addEventListener('DOMContentLoaded', () => {
     var attempts = [];
     var firstMove = 0;
 
-    //window resize
-    window.addEventListener('resize', function() {
-        let winWidth = $(window).width();
-        let winHeight = $(window).height();
-        if(winWidth > winHeight) {
-            square.style.width = Math.floor(((winHeight-150)/winWidth)*100) + '%'
-            squareWidth = (winHeight-150)/winWidth
-        } else {
-            square.style.width = '95%'
-            squareWidth = 0.95
-        }
-        for (let i=0; i < Cards.length; i++) {
-        document.getElementsByClassName('flipCardContainer')[i].style.fontSize =  Math.floor((squareWidth / Math.sqrt(Cards.length))*100) * 0.7 + 'vw'
-        }
-    })
 
     //create first-page
     function createFirstPage() {
@@ -1730,8 +1715,8 @@ document.addEventListener('DOMContentLoaded', () => {
             square.style.width = Math.floor(((winHeight-150)/winWidth)*100) + '%'
             squareWidth = (winHeight-150)/winWidth
         } else {
-            square.style.width = '95%'
-            squareWidth = 0.95
+            //square.style.width = '95%'
+            //squareWidth = 0.95
         }
         
         Cards = cardsArray(numberOfCards)

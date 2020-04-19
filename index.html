@@ -27,22 +27,26 @@
 	<title>Awesome Memory Challenge</title>
 </head>
 
-<body>
-    <header>
-	    <h3>Score: <span id="result"></span></h3>
-	    <h3>Number of Attempts: <span id="attempts"></span></h3>
-	    <h3>Time To Go: <span id="timeToGo"></span></h3>
-        <!--<h3>Time Elapsed: <span id="timeElapsed"></span></h3>-->
-    </header>
+<body id="body">
 
-	<div class="square">
-		<div class="grid">
+	<header>
+		<h5>Score: <span id="result"></span></h5>
+		<h5>Number of Attempts: <span id="attempts"></span></h5>
+		<h5>Time To Go: <span id="timeToGo"></span></h5>
+		<!--<h5>Time Elapsed: <span id="timeElapsed"></span></h5>-->
+	</header>
+
+	<div class="hero-image">
+		<div class="game-container">
+			<div class="square">
+				<div class="grid">
+				</div>
+			</div>
 		</div>
 	</div>
 
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-    <script src="assets/scripts/flip-card.js"></script>
+	<script src="assets/scripts/responsive.js"></script>
 	<script src="assets/scripts/game.js"></script>
 </body>
 
