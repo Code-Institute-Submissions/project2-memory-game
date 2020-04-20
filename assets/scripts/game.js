@@ -307,8 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         gameOver.setAttribute('class','gameOver')
         if (result === 'lost') {
-            gameOver.innerHTML='<h2 style="font-size: 4rem; color: #477641"><i class="fas fa-frown"></i></h2>\
-                                <br>\
+            gameOver.innerHTML='<h2 style="font-size: 8rem; color: rgb(0,150,0)"><i class="fas fa-frown"></i></h2>\
                                 <h2>GAME OVER!</h2>\
                                 <br>\
                                 <h3>Time Expired</h3>\
@@ -318,8 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <h3>Failed Moves: ' + (attempts.length - cardsWon.length) + '</h3>\
                                 <h3>Total Moves:  ' + attempts.length + '</h3>'
         } else {
-            gameOver.innerHTML='<h2  style="font-size: 4rem; color: #477641"><i class="fas fa-trophy"></i></h2>\
-                                <br>\
+            gameOver.innerHTML='<h2  style="font-size: 8rem; color: rgb(0,150,0)"><i class="fas fa-trophy"></i></h2>\
                                 <h2>CONGRATULATIONS!</h2>\
                                 <br>\
                                 <h3>All Pairs Collected.</h3>\
