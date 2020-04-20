@@ -10,15 +10,18 @@
 }
 
 body {
-    overflow: hidden; /* Disable scroll bar */
+    overflow: hidden;
+    cursor: default; /* Disable scroll bar */
 }
 
 a {
     text-decoration: none;
+    cursor: default;
 }
 
 a:hover {
    text-decoration: none; 
+   cursor: default;
 }
 
 
