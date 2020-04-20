@@ -31,28 +31,44 @@
 
 	<header>
 		<div class="logo">
-			<div class="logo-icon">
-				<i class="fab fa-font-awesome"></i>
-			</div>
-			<div class="logo-text">
-				<h1>Font Awesome <br> <span>Memory Challenge<span></h1>
-            </div>
+			<a href="index.html">
+				<div class="logo-icon">
+					<i class="fab fa-font-awesome"></i>
+				</div>
+				<div class="logo-text">
+					<h1>Font Awesome <br> <span>Memory Challenge<span></h1>
+                </div>
+            </a>
 		</div>
+        
 
 		<div class="score-board">
-			<div>
-                <h5>Score: <span id="result"></span></h5>
-			    <h5>Number of Attempts: <span id="attempts"></span></h5>
-				<h5>Time To Go: <span id="timeToGo"></span></h5>
-				<!--<h5>Time Elapsed: <span id="timeElapsed"></span></h5>-->
-			</div>
-		</div>
+                <table>
+                    <tr>
+				        <td colspan="2">
+                            <h2><span id="time">00:00:00</span></h2>
+						</td>
+						</tr>
+						<tr>
+							<td>
+								<h5 class="success"><i class="fas fa-thumbs-up"></i> <span id="won">0</span></h5>
+							</td>
+							<td>
+								<h5 class="failure"><i class="fas fa-thumbs-down"></i> <span id="failed">0</span></h5>
+							</td>
+						</tr>
+						</table>
+				</div>
 
-		<div class="home-button">
-			<div class="home-button-icon">
-				<i class="fas fa-times"></i>
-			</div>
-		</div>
+				
+				<div class="home-button">
+					<a href="index.html">
+                        <div class="home-button-icon">
+							<i class="fas fa-times"></i>
+						</div>
+                    </a>
+				</div>
+				
 
 	</header>
 
@@ -66,7 +82,8 @@
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-	<script src="assets/scripts/responsive.js"></script>
+	<script src="assets/scripts/icons-array.js"></script>
+    <script src="assets/scripts/responsive.js"></script>
 	<script src="assets/scripts/game.js"></script>
 </body>
 
