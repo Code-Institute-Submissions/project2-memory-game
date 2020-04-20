@@ -45,3 +45,19 @@
   color: green;
   transform: rotateY(180deg);
 }
+
+.icon-size16 {
+    font-size: 8rem;
+}
+
+.icon-size36 {
+    font-size: 5.3rem;
+}
+
+.icon-size36 {
+    font-size: 4rem;
+}
+
+.icon-size100 {
+    font-size: 3.2rem;
+}

@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const failDisplay = document.querySelector('#failed');
     const timeDisplay = document.querySelector('#time');
     const scoreBoard = document.querySelector('.score-board')
+    const homeButton = document.querySelector('.home-button-icon')
     
     var timeElapsed
     
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.innerHTML=""
 
         scoreBoard.style.visibility = "hidden"
+        homeButton.style.visibility = "hidden"
 
         var introduction = document.createElement('div')
         var button1 = document.createElement('div')
@@ -47,7 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
 
         introduction.setAttribute('class','introduction')
-        introduction.innerHTML='<h3>Game Intro</h3>'
+        introduction.innerHTML='<h2 style="font-size: 8rem; color: rgb(0,150,0)"><i class="fab fa-font-awesome"></i></h2>\
+                                <h3>Welcome to Font Awesome Memory Challenge!</h3>\
+                                <br>\
+                                <p>This is a memory game is based on Font Awesome free icon collecion.</p>\
+                                <p>The goal of the game is to find all the pairs of cards with matching icon.</p>\
+                                <p>The game offers two modes:</p>\
+                                <p><b>Normal Mode:</b> Player is not limited by time.</p>\
+                                <p><b>Challenge Mode:</b> Player plays against a time limit.</p\
+                                <p>Game also offers 4 difficulty levels defined by a number of cards.</p>\
+                                <br>\
+                                <p>Challenge your memory and have fun!</p>\
+                                <br>\
+                                <br>\
+                                <p><i>Developed by Milan Stefanik as Code Institute Student Project.</i></p>'
         grid.appendChild(introduction);
 
         button1.setAttribute('class', 'button')
@@ -76,6 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         grid.innerHTML=""
         
+        scoreBoard.style.visibility = "hidden"
+        homeButton.style.visibility = "visible"
+
         var difficulty1 = document.createElement('div')
         var difficulty2 = document.createElement('div')
         var difficulty3 = document.createElement('div')
@@ -149,15 +167,15 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.innerHTML=""
         
         scoreBoard.style.visibility = "visible"
+        homeButton.style.visibility = "visible"
 
         Cards = cardsArray(numberOfCards)
 
         for (let i = 0; i < Cards.length; i++) {
             var card = document.createElement('div');
-            card.setAttribute('class', 'flipCardContainer card');
+            card.setAttribute('class', 'flipCardContainer card icon-size' + numberOfCards);
             card.style.width = Math.floor((1 / Math.sqrt(Cards.length))*100) - 1 + '%'
             card.style.height = Math.floor((1 / Math.sqrt(Cards.length))*100) - 1 + '%'
-            card.style.fontSize = (squareWidth / Math.sqrt(Cards.length)) * 35 + 'rem'
             card.innerHTML = '<div class= "flipCard"><div class="frontSide">' + Cards[i] + '</div><div class="backSide"><i class="fab fa-font-awesome-flag"></i></div></div>';
             card.setAttribute('data-id', i);
             card.addEventListener('click', flipCard);
@@ -302,6 +320,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         grid.innerHTML=""
 
+        scoreBoard.style.visibility = "hidden"
+        homeButton.style.visibility = "visible"
+
         var gameOver = document.createElement('div')
         var newGame = document.createElement('a')
 
@@ -310,22 +331,22 @@ document.addEventListener('DOMContentLoaded', () => {
             gameOver.innerHTML='<h2 style="font-size: 8rem; color: rgb(0,150,0)"><i class="fas fa-frown"></i></h2>\
                                 <h2>GAME OVER!</h2>\
                                 <br>\
-                                <h3>Time Expired</h3>\
+                                <h3>Time expired!</h3>\
                                 <br>\
-                                <h3>Time Elapsed: ' + timeElapsed + '</h3>\
-                                <h3>Successful Moves: ' + cardsWon.length + '</h3>\
-                                <h3>Failed Moves: ' + (attempts.length - cardsWon.length) + '</h3>\
-                                <h3>Total Moves:  ' + attempts.length + '</h3>'
+                                <h3>Time elapsed: ' + timeElapsed + '</h3>\
+                                <h3>Successful moves: ' + cardsWon.length + '</h3>\
+                                <h3>Failed moves: ' + (attempts.length - cardsWon.length) + '</h3>\
+                                <h3>Total moves:  ' + attempts.length + '</h3>'
         } else {
             gameOver.innerHTML='<h2  style="font-size: 8rem; color: rgb(0,150,0)"><i class="fas fa-trophy"></i></h2>\
                                 <h2>CONGRATULATIONS!</h2>\
                                 <br>\
-                                <h3>All Pairs Collected.</h3>\
+                                <h3>All pairs collected.</h3>\
                                 <br>\
-                                <h3>Time Elapsed: ' + timeElapsed+ ' </h3>\
-                                <h3>Successful Moves: ' + cardsWon.length + ' </h3>\
-                                <h3>Failed Moves: ' + (attempts.length - cardsWon.length) + ' </h3>\
-                                <h3>Total Moves:  ' + attempts.length + ' </h3>'
+                                <h3>Time elapsed: ' + timeElapsed+ ' </h3>\
+                                <h3>Successful moves: ' + cardsWon.length + ' </h3>\
+                                <h3>Failed moves: ' + (attempts.length - cardsWon.length) + ' </h3>\
+                                <h3>Total moves:  ' + attempts.length + ' </h3>'
         }
 
         grid.appendChild(gameOver);
