@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+body {
+    overflow: hidden; /* Disable scroll bar */
+}
+
 a {
     text-decoration: none;
 }
@@ -101,22 +105,27 @@ header {
 /* Score Board */
 .score-board table {
     height: 100px;
-    width: 50%;
+    width: 100%;
+    table-layout: fixed;
     margin: auto;
 }
 
 .score-board h2 {
+    width: 100%;
     font-size: max(1.5rem, 18px);
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 5px;
     text-align: center;
     vertical-align: middle;
 }
 
 .score-board h5 {
+    width: 100%;
     font-size: max(1rem, 16px);
-    font-weight: 300;
+    margin-top: 0px;
     margin-bottom: 15px;
+    font-weight: 500;
     text-align: center;
     vertical-align: middle;
 }
@@ -149,14 +158,13 @@ header {
   position: relative;
 }
 
-/*-------------------------------------------------------------------Hero Image----------------------------*/
+/*-------------------------------------------------------------------Game Container Setup----------------------------*/
 .game-container {
     margin: auto;
     top: 100px;
     position: relative;
 }
 
-/*-------------------------------------------------------------------Game Container Setup----------------------------*/
 
 .square {
     position: relative;
@@ -179,7 +187,7 @@ header {
 }
 
 
-
+/*------------------------------------------------------------ Home Page / Game Mode Selection -----------------------------*/
 
 .introduction {
     display: flex;
@@ -196,6 +204,8 @@ header {
 }
 
 .button {
+    font-family: "Baloo Bhaina 2", sans-serif;
+    font-weight: 500;
     display: flex;
     width: 40%;
     height: 10%;
@@ -207,8 +217,7 @@ header {
 }
 
 .button:hover {
-    border: solid 1px rgb(0,150,0);
-    background-color: rgb(0,150,0);
+    box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
 }
 
 .button h4 {
@@ -217,42 +226,112 @@ header {
     color: #eee;
 }
 
-.difficulty {
+
+/*------------------------------------------------------------ Second Page / Number of Cards Selection -----------------------------*/
+
+.difficulty1 {
+    font-family: "Baloo Bhaina 2", sans-serif;
+    font-weight: 500;
     display: flex;
     width: 30%;
     height: 30%;
     margin: 10%;
-    border: solid 1px #517fa4;
+    border: solid 1px rgb(0,200,0);
     border-radius: 50%;
-    background-color: #517fa4;
+    background-color: rgb(0,200,0);
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
 }
 
-.difficulty h2 {
+.difficulty1:hover {
+    box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
+}
+
+.difficulty2 {
+    font-family: "Baloo Bhaina 2", sans-serif;
+    font-weight: 500;
+    display: flex;
+    width: 30%;
+    height: 30%;
+    margin: 10%;
+    border: solid 1px rgb(0,150,0);
+    border-radius: 50%;
+    background-color: rgb(0,150,0);
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+}
+
+.difficulty2:hover {
+    box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
+}
+
+.difficulty3 {
+    font-family: "Baloo Bhaina 2", sans-serif;
+    font-weight: 500;
+    display: flex;
+    width: 30%;
+    height: 30%;
+    margin: 10%;
+    border: solid 1px rgb(0,100,0);
+    border-radius: 50%;
+    background-color: rgb(0,100,0);
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+}
+
+.difficulty3:hover {
+    box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
+}
+
+.difficulty4 {
+    font-family: "Baloo Bhaina 2", sans-serif;
+    font-weight: 500;
+    display: flex;
+    width: 30%;
+    height: 30%;
+    margin: 10%;
+    border: solid 1px rgb(0,50,0);
+    border-radius: 50%;
+    background-color: rgb(0,50,0);
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+}
+
+.difficulty4:hover {
+    box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
+}
+
+.difficulty1 h2, .difficulty2 h2, .difficulty3 h2, .difficulty4 h2 {
     text-align: center;
     margin: auto;
     color: #eee;
 }
 
+/*------------------------------------------------------------ Game Over Page -----------------------------*/
+
 .gameOver {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 90%;
-}
-
-.gameOver h2 {
+    height: 80%;
+    padding: 5%;
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+    background-color: lightgreen;
     text-align: center;
-    margin: auto;
-    color: red;
+    justify-content: space-evenly;
 }
 
 .newGame {
+    font-family: "Baloo Bhaina 2", sans-serif;
+    font-weight: 500;
     display: flex;
     width: 40%;
     height: 10%;
-    margin: 5%;
-    border: solid 1px #517fa4;
+    margin: auto;
+    border: solid 1px green;
     border-radius: 20px;
-    background-color: #517fa4;
+    background-color: green;
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+}
+
+.newGame:hover {
+    box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
 }
 
 .newGame h4 {

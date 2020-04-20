@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wonDisplay = document.querySelector('#won');
     const failDisplay = document.querySelector('#failed');
     const timeDisplay = document.querySelector('#time');
+    const scoreBoard = document.querySelector('.score-board')
     
     var timeElapsed
     
@@ -37,9 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function createFirstPage() {
         grid.innerHTML=""
 
+        scoreBoard.style.visibility = "hidden"
+
         var introduction = document.createElement('div')
         var button1 = document.createElement('div')
         var button2 = document.createElement('div')
+
+        
 
         introduction.setAttribute('class','introduction')
         introduction.innerHTML='<h3>Game Intro</h3>'
@@ -77,35 +82,63 @@ document.addEventListener('DOMContentLoaded', () => {
         var difficulty4 = document.createElement('div')
 
 
-        difficulty1.setAttribute('class','difficulty')
+        difficulty1.setAttribute('class','difficulty1')
         difficulty1.innerHTML='<h2>16 cards</h2>'
         difficulty1.addEventListener('click', () => {
             grid.innerHTML="";
             createBoard(16);
+            secondsToGo = 0
+            minutesToGo = 1
+            hoursToGo = 0
+            totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo
+            if(challengeMode == 1) {
+                timeDisplay.textContent = '00:01:00'
+            }
         })
         grid.appendChild(difficulty1);
 
-        difficulty2.setAttribute('class','difficulty')
+        difficulty2.setAttribute('class','difficulty2')
         difficulty2.innerHTML='<h2>36 cards</h2>'
         difficulty2.addEventListener('click', () => {
             grid.innerHTML="";
             createBoard(36);
+            secondsToGo = 30
+            minutesToGo = 1
+            hoursToGo = 0
+            totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo
+            if(challengeMode == 1) {
+                timeDisplay.textContent = '00:01:30'
+            }
         })
         grid.appendChild(difficulty2);
 
-        difficulty3.setAttribute('class','difficulty')
+        difficulty3.setAttribute('class','difficulty3')
         difficulty3.innerHTML='<h2>64 cards</h2>'
         difficulty3.addEventListener('click', () => {
             grid.innerHTML="";
             createBoard(64);
+            secondsToGo = 0
+            minutesToGo = 2
+            hoursToGo = 0
+            totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo
+            if(challengeMode == 1) {
+                timeDisplay.textContent = '00:02:00'
+            }
         })
         grid.appendChild(difficulty3);
 
-        difficulty4.setAttribute('class','difficulty')
+        difficulty4.setAttribute('class','difficulty4')
         difficulty4.innerHTML='<h2>100 cards</h2>'
         difficulty4.addEventListener('click', () => {
             grid.innerHTML="";
             createBoard(100);
+            secondsToGo = 30
+            minutesToGo = 2
+            hoursToGo = 0
+            totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo
+            if(challengeMode == 1) {
+                timeDisplay.textContent = '00:02:30'
+            }
         })
         grid.appendChild(difficulty4);
     }
@@ -114,18 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function createBoard(numberOfCards) {  
         
         grid.innerHTML=""
+        
+        scoreBoard.style.visibility = "visible"
 
-        let winWidth = $(window).width();
-        let winHeight = $(window).height();
-        
-        if(winWidth > winHeight) {
-            square.style.width = Math.floor(((winHeight-150)/winWidth)*100) + '%'
-            squareWidth = (winHeight-150)/winWidth
-        } else {
-            //square.style.width = '95%'
-            //squareWidth = 0.95
-        }
-        
         Cards = cardsArray(numberOfCards)
 
         for (let i = 0; i < Cards.length; i++) {
@@ -133,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('class', 'flipCardContainer card');
             card.style.width = Math.floor((1 / Math.sqrt(Cards.length))*100) - 1 + '%'
             card.style.height = Math.floor((1 / Math.sqrt(Cards.length))*100) - 1 + '%'
-            card.style.fontSize = (squareWidth / Math.sqrt(Cards.length)) * 40 + 'rem'
+            card.style.fontSize = (squareWidth / Math.sqrt(Cards.length)) * 35 + 'rem'
             card.innerHTML = '<div class= "flipCard"><div class="frontSide">' + Cards[i] + '</div><div class="backSide"><i class="fab fa-font-awesome-flag"></i></div></div>';
             card.setAttribute('data-id', i);
             card.addEventListener('click', flipCard);
@@ -169,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearTimeout(t);
             }
             clearTimeout(sw);
+            gameOver('won')
         }
     }
 
@@ -209,13 +234,12 @@ document.addEventListener('DOMContentLoaded', () => {
     createFirstPage()
 
     //timer
-    var secondsToGo = 5;
-    var minutesToGo = 0;
-    var hoursToGo =0;
+    var secondsToGo;
+    var minutesToGo;
+    var hoursToGo;
     
     var totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo
 
-    
 
     function deduct() {
         totalTimeToGo--;
@@ -229,7 +253,8 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(t);
             clearTimeout(sw);
             timeDisplay.textContent = "EXPIRED";
-            gameOver();
+            gameOver('lost');
+            return;
         }
 
         timer();
@@ -273,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //stopWatch();
 
     //gameOverPage
-    function gameOver() {
+    function gameOver(result) {
         
         grid.innerHTML=""
 
@@ -281,7 +306,30 @@ document.addEventListener('DOMContentLoaded', () => {
         var newGame = document.createElement('a')
 
         gameOver.setAttribute('class','gameOver')
-        gameOver.innerHTML='<h2>Game Over</h2>'
+        if (result === 'lost') {
+            gameOver.innerHTML='<h2 style="font-size: 4rem; color: #477641"><i class="fas fa-frown"></i></h2>\
+                                <br>\
+                                <h2>GAME OVER!</h2>\
+                                <br>\
+                                <h3>Time Expired</h3>\
+                                <br>\
+                                <h3>Time Elapsed: ' + timeElapsed + '</h3>\
+                                <h3>Successful Moves: ' + cardsWon.length + '</h3>\
+                                <h3>Failed Moves: ' + (attempts.length - cardsWon.length) + '</h3>\
+                                <h3>Total Moves:  ' + attempts.length + '</h3>'
+        } else {
+            gameOver.innerHTML='<h2  style="font-size: 4rem; color: #477641"><i class="fas fa-trophy"></i></h2>\
+                                <br>\
+                                <h2>CONGRATULATIONS!</h2>\
+                                <br>\
+                                <h3>All Pairs Collected.</h3>\
+                                <br>\
+                                <h3>Time Elapsed: ' + timeElapsed+ ' </h3>\
+                                <h3>Successful Moves: ' + cardsWon.length + ' </h3>\
+                                <h3>Failed Moves: ' + (attempts.length - cardsWon.length) + ' </h3>\
+                                <h3>Total Moves:  ' + attempts.length + ' </h3>'
+        }
+
         grid.appendChild(gameOver);
 
         newGame.setAttribute('class','newGame')
