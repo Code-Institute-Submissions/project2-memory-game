@@ -12,20 +12,20 @@ const homeButton = document.querySelector('.home-button-icon')//container for X 
 
 //game variables
 var timeElapsed  //variable for storing time elapsed  
-var challengeMode = 0; //variable for indicated if normal or challenge mode was selected by user
+var challengeMode = 0; //variable for indicating if normal or challenge mode was selected by user
 var Cards = []; //array of cards for given game
-var cardsChosen = []; 
-var cardsChosenId = [];
-var cardsWon = [];
-var attempts = [];
-var firstMove = 0;
+var cardsChosen = []; //array of chosen cards
+var cardsChosenId = []; //array of chosen cards' IDs
+var cardsWon = []; //array of succesfull moves
+var attempts = []; //array of total moves
+var firstMove = 0; //variable for indicating if the first move has been played, once the first move has been played, value will change to 1
 
-//stopwatch
+//stopwatch variables
 var secondsElapsed = 0;
 var minutesElapsed = 0;
 var hoursElapsed = 0;
 
-//timer
+//timer variables
 var secondsToGo;
 var minutesToGo;
 var hoursToGo;

@@ -1,6 +1,8 @@
 //adjust elements and font sizes on web page load
 document.addEventListener('DOMContentLoaded', () => {
     fitScreen()
+    createIntroPage() //load intro-screen
+
 })
 
 //adjust elements and font sizes on window resize
