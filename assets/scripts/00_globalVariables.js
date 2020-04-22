@@ -1,24 +1,24 @@
 //variables for game container
-const square = document.querySelector('.square'); //game grid container - responsive square
-const grid = document.querySelector('.grid'); //element where the particular game screens are populated
+const square = document.querySelector('.square');   //game grid container - responsive square
+const grid = document.querySelector('.grid');   //element where the particular game screens are populated
 
 //variables for header
-const wonDisplay = document.querySelector('#won'); //element for displaying number of succesful attempts
-const failDisplay = document.querySelector('#failed'); //element for displaying failed attempts
-const timeDisplay = document.querySelector('#time'); //element for displaying time (timer or stopwatch depending on game mode)
-const scoreBoard = document.querySelector('.score-board')//container for wonDisplay, failDisplay and timeDisplay
-const homeButton = document.querySelector('.home-button-icon')//container for X button for ending game and return to home screen
+const wonDisplay = document.querySelector('#won');  //element for displaying number of succesful attempts
+const failDisplay = document.querySelector('#failed');  //element for displaying failed attempts
+const timeDisplay = document.querySelector('#time');    //element for displaying time (timer or stopwatch depending on game mode)
+const scoreBoard = document.querySelector('.score-board');  //container for wonDisplay, failDisplay and timeDisplay
+const homeButton = document.querySelector('.home-button-icon'); //container for X button for ending game and return to home screen
 
 
 //game variables
-var timeElapsed  //variable for storing time elapsed  
-var challengeMode = 0; //variable for indicating if normal or challenge mode was selected by user
+var timeElapsed;    //variable for storing time elapsed  
+var challengeMode = 0;  //variable for indicating if normal or challenge mode was selected by user
 var Cards = []; //array of cards for given game
-var cardsChosen = []; //array of chosen cards
+var cardsChosen = [];   //array of chosen cards
 var cardsChosenId = []; //array of chosen cards' IDs
-var cardsWon = []; //array of succesfull moves
-var attempts = []; //array of total moves
-var firstMove = 0; //variable for indicating if the first move has been played, once the first move has been played, value will change to 1
+var cardsWon = [];  //array of succesfull moves
+var attempts = [];  //array of total moves
+var firstMove = 0;  //variable for indicating if the first move has been played, once the first move has been played, value will change to 1
 
 //stopwatch variables
 var secondsElapsed = 0;
@@ -1630,5 +1630,5 @@ var iconsArray = [
         '<i class="fab fa-youtube"></i>',
         '<i class="fab fa-youtube-square"></i>',
         '<i class="fab fa-zhihu"></i>'
-    ]
+    ];
 

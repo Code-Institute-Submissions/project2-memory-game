@@ -1,9 +1,9 @@
 //create game-over page
-function gameOver(result) {
+function createGameOverPage(result) {
 
     grid.innerHTML = "" //clear grid container
 
-    scoreBoard.style.visibility = "hidden" //score board is invisible on game-over page
+    scoreBoard.style.visibility = "hidden" //score board is hidden on game-over page
     homeButton.style.visibility = "visible" //home button is visible on game-over page
 
     var gameOver = document.createElement('div')

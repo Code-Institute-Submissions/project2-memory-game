@@ -11,7 +11,7 @@ function deduct() {
         clearTimeout(t);
         clearTimeout(sw);
         timeDisplay.textContent = "EXPIRED";
-        gameOver('lost');
+        createGameOverPage('lost'); //open Game Over page with losing content
         return;
     }
 
