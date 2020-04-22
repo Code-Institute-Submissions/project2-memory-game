@@ -16,23 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    const grid = document.querySelector('.grid');
-    const wonDisplay = document.querySelector('#won');
-    const failDisplay = document.querySelector('#failed');
-    const timeDisplay = document.querySelector('#time');
-    const scoreBoard = document.querySelector('.score-board')
-    const homeButton = document.querySelector('.home-button-icon')
     
-    var timeElapsed
     
-    var challengeMode = 0;
-    var numberOfCards = 0;
-    var Cards = [];
-    var cardsChosen = [];
-    var cardsChosenId = [];
-    var cardsWon = [];
-    var attempts = [];
-    var firstMove = 0;
+    
 
 
     //create first-page
@@ -251,10 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createFirstPage()
 
-    //timer
-    var secondsToGo;
-    var minutesToGo;
-    var hoursToGo;
+    
     
     var totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo
 
@@ -284,10 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-     //stopwatch
-    var secondsElapsed = 0;
-    var minutesElapsed = 0;
-    var hoursElapsed = 0;
+     
 
     function add() {
         secondsElapsed++;

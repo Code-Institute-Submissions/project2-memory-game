@@ -1,4 +1,47 @@
-  var iconsArray = [
+//variables for game container
+const square = document.querySelector('.square'); //game grid container - responsive square
+const grid = document.querySelector('.grid'); //element where the particular game screens are populated
+
+//variables for header
+const wonDisplay = document.querySelector('#won'); //element for displaying number of succesful attempts
+const failDisplay = document.querySelector('#failed'); //element for displaying failed attempts
+const timeDisplay = document.querySelector('#time'); //element for displaying time (timer or stopwatch depending on game mode)
+const scoreBoard = document.querySelector('.score-board')//container for wonDisplay, failDisplay and timeDisplay
+const homeButton = document.querySelector('.home-button-icon')//container for X button for ending game and return to home screen
+
+
+//game variables
+var timeElapsed  //variable for storing time elapsed  
+var challengeMode = 0; //variable for indicated if normal or challenge mode was selected by user
+var Cards = []; //array of cards for given game
+var cardsChosen = []; 
+var cardsChosenId = [];
+var cardsWon = [];
+var attempts = [];
+var firstMove = 0;
+
+//stopwatch
+var secondsElapsed = 0;
+var minutesElapsed = 0;
+var hoursElapsed = 0;
+
+//timer
+var secondsToGo;
+var minutesToGo;
+var hoursToGo;
+
+
+/*Font Awesome Free Icons array - based on version 5.13.0, 1588 free icons
+Icons were collected from 'https://fontawesome.com/icons?d=gallery&m=free' via console using following function
+
+function collectIcons() {
+  var linkarray = []; for (let i=0; i < document.getElementsByTagName("i").length; i++) {linkarray.push(document.getElementsByTagName("i")[i].outerHTML)}; copy(linkarray);
+}
+
+which copies all the "i" html elements of displayed icons to the clipboard, which can be then copied to notepad and strigns can be cleaned.  
+
+ */
+var iconsArray = [
         '<i class="fab fa-500px"></i>',
         '<i class="fab fa-accessible-icon"></i>',
         '<i class="fab fa-accusoft"></i>',
