@@ -10,18 +10,19 @@
 }
 
 body {
-    overflow: hidden;
-    cursor: default; /* Disable scroll bar */
+    font-family: "Baloo Bhaina 2", sans-serif;
+    overflow: hidden; /* Disable scroll bar */
+    cursor: default; /* Does not change cursor shape when over text */
 }
 
 a {
     text-decoration: none;
-    cursor: default;
+    cursor: default; /* Does not change cursor shape when over link */
 }
 
 a:hover {
    text-decoration: none; 
-   cursor: default;
+   cursor: default; /* Does not change cursor shape when over link */
 }
 
 
@@ -86,23 +87,24 @@ header {
     justify-content: left;
     align-items: center;
     color: white;
-    font-family: "Baloo Bhaina 2", sans-serif;
 }
 
+/*Logo text to be hidden on screens with widht of less than 650px*/
 @media only screen and (max-width: 650px) {
     .logo-text {
         display: none;
     }
 }
 
+/*logo first line*/
 .logo h1 {
     margin: 0;
     font-size: 1.3rem;
     font-weight: 700;
 }
 
+/*logo second line*/
 .logo span {
-    font-family: "Baloo Bhaina 2", sans-serif;
     font-size: 1.1rem;
     font-weight: 300;
 }
@@ -115,6 +117,7 @@ header {
     margin: auto;
 }
 
+/* Score Board - time*/
 .score-board h2 {
     width: 100%;
     font-size: max(1.5rem, 18px);
@@ -125,6 +128,7 @@ header {
     vertical-align: middle;
 }
 
+/* Score Board - score - successful/failed moves*/
 .score-board h5 {
     width: 100%;
     font-size: max(1rem, 16px);
@@ -164,13 +168,14 @@ header {
 }
 
 /*-------------------------------------------------------------------Game Container Setup----------------------------*/
+
 .game-container {
     margin: auto;
     top: 100px;
     position: relative;
 }
 
-
+/*assures that the game-area is always of the square shape*/
 .square {
     position: relative;
     margin: auto;
@@ -212,7 +217,6 @@ header {
 }
 
 .button {
-    font-family: "Baloo Bhaina 2", sans-serif;
     font-weight: 500;
     display: flex;
     width: 40%;
@@ -237,8 +241,8 @@ header {
 
 /*------------------------------------------------------------ Second Page / Number of Cards Selection -----------------------------*/
 
+/*16 cards button*/
 .difficulty1 {
-    font-family: "Baloo Bhaina 2", sans-serif;
     font-weight: 500;
     display: flex;
     width: 30%;
@@ -254,8 +258,8 @@ header {
     box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
 }
 
+/*36 cards button*/
 .difficulty2 {
-    font-family: "Baloo Bhaina 2", sans-serif;
     font-weight: 500;
     display: flex;
     width: 30%;
@@ -271,8 +275,8 @@ header {
     box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
 }
 
+/*64 cards button*/
 .difficulty3 {
-    font-family: "Baloo Bhaina 2", sans-serif;
     font-weight: 500;
     display: flex;
     width: 30%;
@@ -288,8 +292,8 @@ header {
     box-shadow: 10px 10px 5px rgba(255,255,255,0.5);
 }
 
+/*100 cards button*/
 .difficulty4 {
-    font-family: "Baloo Bhaina 2", sans-serif;
     font-weight: 500;
     display: flex;
     width: 30%;
@@ -326,7 +330,6 @@ header {
 }
 
 .newGame {
-    font-family: "Baloo Bhaina 2", sans-serif;
     font-weight: 500;
     display: flex;
     width: 40%;

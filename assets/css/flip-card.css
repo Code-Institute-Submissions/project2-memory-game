@@ -1,18 +1,22 @@
 /* Styles for flip-card effect */
 
+/* Card container - holds all the card elements and define size of the card; size is calculated and assigned by createGamePage(numberOfCards) function in 04_game-page.js 
+card container does not move, only contains the moving elements*/
 .flipCardContainer {
   margin: 0.5%;
   border: 0px;
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
   -o-perspective: 1000px;
-  perspective: 1000px;
+  perspective: 1000px; /*gives perspective to 3d-positioned element*/
   border-radius: 5px;
 }
+
+/*Card - holds back and front card elements and, if defined, controls mouse hover action*/
 .flipCard {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100%; /*card occupies whole width of the card container*/
+  height: 100%; /*card occupies whole height of the card container*/
   -webkit-transition: -webkit-transform 500ms;
   -moz-transition: -moz-transform 500ms;
   -o-transition: -o-transform 500ms;
@@ -23,15 +27,31 @@
   transform-style: preserve-3d;
   border-radius: 5px;
 }
+
+/*Possible hover action*/
+/*.flipCardContainer:hover .flipCard {
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+}*/
+
+/*for click action, hover pseudo class is replaced by '.flip' class 
+then following JS code is used:
+const flipCardContainer = document.querySelector('.flipCardContainer');
+flipCardContainer.addEventListener('click', function(){
+    flipCardContainer.classList.toggle/add/remove('flip');
+})*/
 .flipCardContainer.flip .flipCard {
   -webkit-transform: rotateY( 180deg );
   -moz-transform: rotateY( 180deg );
   -o-transform: rotateY( 180deg );
   transform: rotateY( 180deg );
 }
-/* Position the front and back side */
+
+/* Back and front side common characteristics*/
 .frontSide, .backSide {
-  position: absolute;
+  position: absolute; /*assures that back and front side elemnts are on top of each other*/
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -44,30 +64,31 @@
   box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
 }
 
+/* BackSide of the card characteristics - this is the side visible by default*/
 .backSide {
   background-color: green;
   border: solid 1px green;
   border-radius: 5px;
   color: #fff;
-  z-index: 2;
 }
 
 .backSide:hover {
     background-color: rgb(0,150,0);
 }
 
+/* FrontSide of the card characteristics - this is the side visible after click*/
 .frontSide {
   background-color: #fff;
   border: solid 1px #fff;
   border-radius: 5px;
   color: green;
-  -webkit-transform: rotateY( 180deg );
+  -webkit-transform: rotateY( 180deg ); /*if this value is between 90deg and 270deg than frontside of the card would not be visible due to 'backface-visibility: hidden'*/
   -moz-transform: rotateY( 180deg );
   -o-transform: rotateY( 180deg );
   transform: rotateY( 180deg );
-  z-index: 3;
 }
 
+/*Cards font sizes dependent on the number of cards in the game */
 .icon-size16 {
     font-size: 8rem;
 }

@@ -58,6 +58,8 @@ function flipCard() {
     }
 
     //if it is the first move, start stopwatch; if challenged mode selected, start timer
+    //prevent from stopwatch and/or timer being started multiple times
+    //stopwatch and/or timer is started on the first move istead of on the game load
     if (firstMove === 0) {
         firstMove = 1;
         stopWatch();
