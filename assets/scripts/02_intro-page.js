@@ -16,7 +16,7 @@ function createIntroPage() {
     introduction.innerHTML = '<h2 style="font-size: 8rem; color: rgb(0,150,0)"><i class="fab fa-font-awesome"></i></h2>\
                                 <h3>Welcome to Font Awesome Memory Challenge!</h3>\
                                 <br>\
-                                <p>This is a memory game is based on Font Awesome free icon collecion.</p>\
+                                <p>This is a memory game based on Font Awesome free icon collecion.</p>\
                                 <p>The goal of the game is to find all the pairs of cards with matching icon.</p>\
                                 <p>The game offers two modes:</p>\
                                 <p><b>Normal Mode:</b> Player is not limited by time.</p>\
