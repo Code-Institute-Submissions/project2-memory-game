@@ -13,7 +13,7 @@ function createGameOverPage(result) {
     gameOver.setAttribute('class', 'gameOver')
     
     if (result === 'lost') {//text content  (game results summary) for lost game (only in challenge mode)
-        gameOver.innerHTML = '<h2 style="font-size: 8rem; color: rgb(0,150,0)"><i class="fas fa-frown"></i></h2>\
+        gameOver.innerHTML = '<h2><i class="fas fa-frown" style = "font-size: 8rem; color: rgb(0,150,0); margin: 10px;"></i></h2>\
                                 <h2>GAME OVER!</h2>\
                                 <br>\
                                 <h3>Time expired!</h3>\
@@ -23,7 +23,7 @@ function createGameOverPage(result) {
                                 <h3>Failed moves: ' + (attempts.length - cardsWon.length) + '</h3>\
                                 <h3>Total moves:  ' + attempts.length + '</h3>'
     } else {//text content  (game results summary) for won game
-        gameOver.innerHTML = '<h2  style="font-size: 8rem; color: rgb(0,150,0)"><i class="fas fa-trophy"></i></h2>\
+        gameOver.innerHTML = '<h2><i class="fas fa-trophy" style = "font-size: 8rem; color: rgb(0,150,0); margin: 10px;"></i></h2>\
                                 <h2>CONGRATULATIONS!</h2>\
                                 <br>\
                                 <h3>All pairs collected.</h3>\

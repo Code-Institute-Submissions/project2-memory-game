@@ -13,7 +13,7 @@ function createIntroPage() {
 
     //Creating Game Intro text container including text content
     introduction.setAttribute('class', 'introduction');
-    introduction.innerHTML = '<h2 style="font-size: 8rem; color: rgb(0,150,0)"><i class="fab fa-font-awesome"></i></h2>\
+    introduction.innerHTML = '<h2><i class="fab fa-font-awesome" style = "font-size: 8rem; color: rgb(0,150,0); margin: 10px;"></i></h2>\
                                 <h3>Welcome to Font Awesome Memory Challenge!</h3>\
                                 <br>\
                                 <p>This is a memory game based on Font Awesome free icon collecion.</p>\
@@ -23,8 +23,7 @@ function createIntroPage() {
                                 <p><b>Challenge Mode:</b> Player plays against a time limit.</p\
                                 <p>Game also offers 4 difficulty levels defined by a number of cards.</p>\
                                 <br>\
-                                <p>Challenge your memory and have fun!</p>\
-                                <br>\
+                                <h5>Challenge your memory and have fun!</h5>\
                                 <br>\
                                 <p><i>Developed by Milan Stefanik as Code Institute Student Project.</i></p>';
     grid.appendChild(introduction);
