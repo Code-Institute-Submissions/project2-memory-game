@@ -49,6 +49,7 @@
   border: solid 1px green;
   border-radius: 5px;
   color: #fff;
+  z-index: 2;
 }
 
 .backSide:hover {
@@ -64,6 +65,7 @@
   -moz-transform: rotateY( 180deg );
   -o-transform: rotateY( 180deg );
   transform: rotateY( 180deg );
+  z-index: 3;
 }
 
 .icon-size16 {
