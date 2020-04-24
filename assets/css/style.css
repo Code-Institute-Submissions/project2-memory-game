@@ -170,9 +170,11 @@ header {
 /*-------------------------------------------------------------------Game Container Setup----------------------------*/
 
 .game-container {
+    height: 100%;
     margin: auto;
-    top: 100px;
     position: relative;
+    padding-top: 100px;
+
 }
 
 /*assures that the game-area is always of the square shape*/
@@ -209,6 +211,8 @@ header {
     background-color: lightgreen;
     text-align: center;
     justify-content: space-evenly;
+    border: solid 1px lightgreen;
+    border-radius: 2%;
 }
 
 
@@ -328,6 +332,8 @@ header {
     background-color: lightgreen;
     text-align: center;
     justify-content: space-evenly;
+    border: solid 1px lightgreen;
+    border-radius: 2%;
 }
 
 .newGame {
