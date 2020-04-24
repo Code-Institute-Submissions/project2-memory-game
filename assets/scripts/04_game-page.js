@@ -1,6 +1,11 @@
 //generate array with randomly generated icons, each icon must be twice in the array, array length corresponding to number of cards
+function shuffleArray(array) {
+    array.sort(() => 0.5 - Math.random()); //randomly suffles created array of icons for the game
+    return array;
+}
+
 function cardsArray(numberOfCards) {
-    let randomIconsArray = iconsArray.sort(() => 0.5 - Math.random()); //create randomly shuffled array of all font awesome icons
+    let randomIconsArray = shuffleArray(iconsArray); //create randomly shuffled array of all font awesome icons
     var cardsArray = []; //array of randomly selected icons for new game
 
     //loop selects number of cards needed for the game from the beginning of randomly shuffled icons array
@@ -11,7 +16,7 @@ function cardsArray(numberOfCards) {
     };
     //selected cards array needs to be randomly shuffled
     
-    cardsArray.sort(() => 0.5 - Math.random()) //randomly suffles created array of icons for the game
+    shuffleArray(cardsArray);
     return cardsArray;
 }
 
