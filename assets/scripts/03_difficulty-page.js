@@ -58,10 +58,10 @@ function createDifficultyPage() {
         //set timer for challenge mode
         if (challengeMode === 1) {
             secondsToGo = 0;
-            minutesToGo = 3;
+            minutesToGo = 4;
             hoursToGo = 0;
             totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo;
-            timeDisplay.textContent = '00:03:00';
+            timeDisplay.textContent = '00:04:00';
         };
     });
     grid.appendChild(difficulty3);
@@ -76,10 +76,10 @@ function createDifficultyPage() {
         //set timer for challenge mode
         if (challengeMode === 1) {
             secondsToGo = 0;
-            minutesToGo = 4;
+            minutesToGo = 7;
             hoursToGo = 0;
             totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo;
-            timeDisplay.textContent = '00:04:00';
+            timeDisplay.textContent = '00:07:00';
         };
     });
     grid.appendChild(difficulty4);

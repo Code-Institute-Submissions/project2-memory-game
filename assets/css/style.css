@@ -99,13 +99,13 @@ header {
 /*logo first line*/
 .logo h1 {
     margin: 0;
-    font-size: 1.3rem;
+    font-size: 18px;
     font-weight: 700;
 }
 
 /*logo second line*/
 .logo span {
-    font-size: 1.1rem;
+    font-size: 15px;
     font-weight: 300;
 }
 
@@ -120,7 +120,7 @@ header {
 /* Score Board - time*/
 .score-board h2 {
     width: 100%;
-    font-size: max(1.5rem, 18px);
+    font-size: 18px;
     font-weight: 500;
     margin-top: 15px;
     margin-bottom: 5px;
@@ -131,7 +131,7 @@ header {
 /* Score Board - score - successful/failed moves*/
 .score-board h5 {
     width: 100%;
-    font-size: max(1rem, 16px);
+    font-size: 15px;
     margin-top: 0px;
     margin-bottom: 15px;
     font-weight: 500;

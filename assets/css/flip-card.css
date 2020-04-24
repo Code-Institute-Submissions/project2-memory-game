@@ -17,10 +17,10 @@ card container does not move, only contains the moving elements*/
   position: relative;
   width: 100%; /*card occupies whole width of the card container*/
   height: 100%; /*card occupies whole height of the card container*/
-  -webkit-transition: -webkit-transform 500ms;
-  -moz-transition: -moz-transform 500ms;
-  -o-transition: -o-transform 500ms;
-  transition: transform 500ms;
+  -webkit-transition: -webkit-transform 400ms;
+  -moz-transition: -moz-transform 400ms;
+  -o-transition: -o-transform 400ms;
+  transition: transform 400ms;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
