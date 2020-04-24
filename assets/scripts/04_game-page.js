@@ -73,7 +73,7 @@ function flipCard() {
     cardsChosenId.push(cardId); //pushing flipped card's ID to cardsChosenId array
     this.classList.add('flip'); //add 'flip' class - animated flip effect
     if (cardsChosen.length === 2) { //if two cards were chosen, wait for 1000 ms and lanch checkForMatch() function
-        setTimeout(checkForMatch, 700)
+        setTimeout(checkForMatch, 1000)
     };
 
 }
