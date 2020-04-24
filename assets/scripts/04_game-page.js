@@ -1,8 +1,24 @@
 //generate array with randomly generated icons, each icon must be twice in the array, array length corresponding to number of cards
 function shuffleArray(array) {
-    array.sort(() => 0.5 - Math.random()); //randomly suffles created array of icons for the game
+    
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
     return array;
 }
+
 
 function cardsArray(numberOfCards) {
     let randomIconsArray = shuffleArray(iconsArray); //create randomly shuffled array of all font awesome icons
@@ -15,7 +31,7 @@ function cardsArray(numberOfCards) {
         cardsArray.push(randomIconsArray[i]);
     };
     //selected cards array needs to be randomly shuffled
-    
+
     shuffleArray(cardsArray);
     return cardsArray;
 }
@@ -40,7 +56,7 @@ function createGamePage(numberOfCards) {
         card.innerHTML = '<div class= "flipCard"><div class="frontSide">' + Cards[i] + '</div><div class="backSide"><i class="fab fa-font-awesome-flag"></i></div></div>'; //define inner html
         card.setAttribute('data-id', i); //create and define cards' 'data-id' attribute
         card.addEventListener('click', flipCard); //on click, launch function flipCard()
-        grid.appendChild(card); 
+        grid.appendChild(card);
     }
 }
 
@@ -86,11 +102,11 @@ function flipCard() {
 
 //check for matches
 function checkForMatch() {
-    
+
     var cards = document.querySelectorAll('.flipCardContainer') //creating array of all distributed cards
     const optionOneId = cardsChosenId[0] //setting the ID of the first flipped card as constant
     const optionTwoId = cardsChosenId[1] //setting the ID of the second flipped card as constant
-    
+
     if (cardsChosen[0] === cardsChosen[1]) { //Winning scenarion = icons on flipped cards match
         cards[optionOneId].style.visibility = "hidden" //make the first card hidden
         cards[optionTwoId].style.visibility = "hidden" //make the second card hidden
@@ -106,14 +122,14 @@ function checkForMatch() {
     cardsChosenId = [] //clear cardsChosenId array
     wonDisplay.textContent = cardsWon.length //update score on won display in header
     failDisplay.textContent = attempts.length - cardsWon.length //update score on fail display in header
-    
+
     //End of game scenario - number of won cards is equal to total number of cards
     if (cardsWon.length === Cards.length / 2) {
-        
+
         if (challengeMode == 1) {
             clearTimeout(t); //stop timer if the game was in challenge mode
         }
-        
+
         clearTimeout(sw); //stop stopwatch
         createGameOverPage('won') //open Game Over page with winning content
     }
