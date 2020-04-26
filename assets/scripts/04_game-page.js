@@ -1,19 +1,27 @@
 //generate array with randomly generated icons, each icon must be twice in the array, array length corresponding to number of cards
 function shuffleArray(array) {
-    
-    var currentIndex = array.length, temporaryValue, randomIndex;
+//function starts from the last value in the array and goes to the beginning of the array and switches position of current value with value on randomly selected position.
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
+    if (!array) {
+        throw new Error('array argument is not defined');
+    }
+
+    var currentPosition = array.length; //position of current element; starts at the last position of the array
+    var currentValue; //value of element at current position
+    var futurePosition; //randomly generated  future position of currrent element
+
+    
+    // Shuffle while there remain elements...
+    while (0 !== currentPosition) {
 
         // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+        futurePosition = Math.floor(Math.random() * currentPosition);
+        currentPosition -= 1;
 
         // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+        currentValue = array[currentPosition];
+        array[currentPosition] = array[futurePosition];
+        array[futurePosition] = currentValue;
     }
 
     return array;
@@ -21,7 +29,16 @@ function shuffleArray(array) {
 
 
 function cardsArray(numberOfCards) {
-    let randomIconsArray = shuffleArray(iconsArray); //create randomly shuffled array of all font awesome icons
+    
+    if (!numberOfCards) {
+        throw new Error('numberOfCards argument is not defined');
+    }
+
+    if (numberOfCards % 2 > 0) {
+        throw new Error('numberOfCards argument must be divisible by 2');
+    }
+    
+    var randomIconsArray = shuffleArray(iconsArray); //create randomly shuffled array of all font awesome icons
     var cardsArray = []; //array of randomly selected icons for new game
 
     //loop selects number of cards needed for the game from the beginning of randomly shuffled icons array
@@ -48,7 +65,7 @@ function createGamePage(numberOfCards) {
     Cards = cardsArray(numberOfCards); //generating cards for the game
 
     //Loop creates element for each of generated cards and assigns needed attributes
-    for (let i = 0; i < Cards.length; i++) {
+    for (var i = 0; i < Cards.length; i++) {
         var card = document.createElement('div'); //set card variable as 'div' element
         card.setAttribute('class', 'flipCardContainer card icon-size' + numberOfCards); //assign classes
         card.style.width = Math.floor((1 / Math.sqrt(Cards.length)) * 100) - 1 + '%' //define card width - calculated based on number of cards in the row

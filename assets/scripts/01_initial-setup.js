@@ -1,11 +1,9 @@
 //adjust elements and font sizes on web page load
-document.addEventListener('DOMContentLoaded', () => {
-    //jQuery .ready(handler) "$(function() {handler})" waits until Document Object Model (DOM) is safe to manipulate
-    $(function() {
-        fitScreen();
-        createIntroPage();
-    });
-})
+function onLoad() {
+    fitScreen();
+    createIntroPage();
+}
+
 
 //adjust elements and font sizes on window resize
 window.addEventListener('resize', function () {
