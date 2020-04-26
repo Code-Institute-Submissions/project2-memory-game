@@ -24,6 +24,27 @@
   <!-- include spec files here... -->
   <script src="assets/specs/04_game-page.spec.js"></script>
   
+  <script type="text/javascript">
+   describe("TestDOMfunctions()", function() {
+   beforeEach(function(done) {  
+       $.ajax({
+          url: 'index.html',
+          data: {},
+          success: function (data) {
+                 setFixtures(data);
+               successCallback = (function(originalFunction) {
+             return function(data) {
+                   originalFunction(data);
+                   done();
+               };
+        })(successCallback);
+          },
+          dataType: 'html'
+         });
+  });
+});
+</script>
+
 
 </head>
 

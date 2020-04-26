@@ -83,3 +83,24 @@ describe("My cardsArray function", function () {
 
 });
 
+describe("My cardsArray function", function () {
+    
+    beforeAll(function () {
+        $('body').attr('onload', '"onLoad()"');
+        $('body').append('<div class="square"><div class="grid"></div></div>')
+    });
+
+    beforeEach(function () {
+        game = new createGamePage([]);
+    });
+
+    
+    describe("Should create card elements in HTML", function () {
+        it("Should be defined", function () {
+            expect(typeof createGamePage).toBe('function');
+        });
+    });
+
+
+
+});
