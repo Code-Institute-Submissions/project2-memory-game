@@ -109,13 +109,25 @@ describe("Memory Game", function () {
                 expect(typeof createGamePage).toBe('function');
             });
 
-            it("createGamePage should return error if argument (numberOfCards) is not passed", function () {
+            it("Should return error if argument (numberOfCards) is not passed", function () {
                 expect(function () { createGamePage() }).toThrow(Error('numberOfCards argument is not defined'));
             });
 
-            it("createGamePage argument must be divisible by 2", function () {
+            it("Should argument must be divisible by 2", function () {
                 expect(function () { createGamePage(3) }).toThrow(Error('numberOfCards argument must be divisible by 2'));
             });
+
+            it("Should create respective HTML elements with corresponding classes", function () {
+                game = new createGamePage(16);
+                expect(document.querySelectorAll('#fixture .flipCardContainer').length).toBe(16);
+                expect(document.querySelectorAll('#fixture .card').length).toBe(16);
+                expect(document.querySelectorAll('#fixture .icon-size16').length).toBe(16);
+                expect(document.querySelectorAll('#fixture .flipCard').length).toBe(16);
+                expect(document.querySelectorAll('#fixture .frontSide').length).toBe(16);
+                expect(document.querySelectorAll('#fixture .backSide').length).toBe(16);
+            });
+
+            
         });
 
 
