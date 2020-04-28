@@ -11,9 +11,8 @@
   <script src="assets/jasmine/jasmine-3.5.0/jasmine-html.js"></script>
   <script src="assets/jasmine/jasmine-3.5.0/boot.js"></script>
 
-  <!-- include source files here... -->
+  <!-- include source files here...-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-  <script src="assets/scripts/00_globalVariables.js"></script>
   <script src="assets/scripts/01_initial-setup.js"></script>
   <script src="assets/scripts/02_intro-page.js"></script>
   <script src="assets/scripts/03_difficulty-page.js"></script>
@@ -24,29 +23,7 @@
   <!-- include spec files here... -->
   <script src="assets/specs/04_game-page.spec.js"></script>
   
-  <script type="text/javascript">
-   describe("TestDOMfunctions()", function() {
-   beforeEach(function(done) {  
-       $.ajax({
-          url: 'index.html',
-          data: {},
-          success: function (data) {
-                 setFixtures(data);
-               successCallback = (function(originalFunction) {
-             return function(data) {
-                   originalFunction(data);
-                   done();
-               };
-        })(successCallback);
-          },
-          dataType: 'html'
-         });
-  });
-});
-</script>
-
-
-</head>
+ </head>
 
 <body>
 </body>
