@@ -7,10 +7,16 @@ describe("Memory Game", function () {
 
     describe("On Load Setup", function () {
 
-        it("With onLoad() function, fitScreen() function should be called", function () {
-            fitScreen = jasmine.createSpy();
+        it("With onLoad() function, fitToScreen() function should be called", function () {
+            fitToScreen = jasmine.createSpy();
             onLoad();
-            expect(fitScreen).toHaveBeenCalled();
+            expect(fitToScreen).toHaveBeenCalled();
+        });
+
+        it("With onLoad() function, adjustFontSize() function should be called", function () {
+            adjustFontSize = jasmine.createSpy();
+            onLoad();
+            expect(adjustFontSize).toHaveBeenCalled();
         });
 
         it("With onLoad() function, createIntroPage() function should be called", function () {
@@ -21,26 +27,34 @@ describe("Memory Game", function () {
 
     });
 
-    describe("fitScreen Function", function () {
+    describe("fitToScreen Function", function () {
 
-        it("Game area and html root font size should adjust to smaller of screen width and screen height - smaller height", function () {
-            var winWidth = 1000;
-            var winHeight = 500;
-            fitScreen(winWidth, winHeight);
-            var result1 = square.style.width;
-            var result2 = jQuery('html').css('font-size');
-            expect(result1).toBe('40%');
-            expect(result2).toBe('25.6px');
+        describe("Should calculate the size of the game-board to fit the screen", function () {
+            it("Screen with smaller height", function () {
+                var result = fitToScreen(1000, 500);
+                expect(result).toBe('40%');
+            });
+
+            it("Screen with smaller width", function () {
+                var result = fitToScreen(500, 1000);
+                expect(result).toBe('100%');
+            });
         });
+    });
 
-        it("Game area and html root document font size should adjust to smaller of screen width and screen height - smaller width", function () {
-            var winWidth = 500;
-            var winHeight = 1000;
-            fitScreen(winWidth, winHeight);
-            var result1 = square.style.width;
-            var result2 = jQuery('html').css('font-size');
-            expect(result1).toBe('100%');
-            expect(result2).toBe('64px');
+    describe("adjustFontSize Function", function () {
+
+        describe("Should calculate the root font size fit the screen", function () {
+
+            it("Screen with smaller height", function () {
+                var result = adjustFontSize(1000, 500);
+                expect(result).toBe('0.8vw');
+            });
+
+            it("Screen with smaller width", function () {
+                var result = adjustFontSize(500, 1000);
+                expect(result).toBe('2vw');
+            });
         });
     });
 
