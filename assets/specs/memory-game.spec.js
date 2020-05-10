@@ -1,30 +1,17 @@
 describe("Memory Game", function () {
 
+jasmine.getEnv().configure({random:false});
+
     beforeAll(function () {
-        jasmine.getFixtures().fixturesPath = 'assets/specs/fixtures';
-        loadFixtures('htmlFixture.html');
-    });
-
-    describe("On Load Setup", function () {
-
-        it("With onLoad() function, fitToScreen() function should be called", function () {
-            fitToScreen = jasmine.createSpy();
-            onLoad();
-            expect(fitToScreen).toHaveBeenCalled();
+        $('#fixture').remove();
+        $.ajax({
+            async: false, // must be synchronous to guarantee that no tests are run before fixture is loaded
+            dataType: 'html',
+            url: 'assets/specs/fixtures/htmlFixture.html',
+            success: function (data) {
+                $('body').append($(data));
+            }
         });
-
-        it("With onLoad() function, adjustFontSize() function should be called", function () {
-            adjustFontSize = jasmine.createSpy();
-            onLoad();
-            expect(adjustFontSize).toHaveBeenCalled();
-        });
-
-        it("With onLoad() function, createIntroPage() function should be called", function () {
-            createIntroPage = jasmine.createSpy();
-            onLoad();
-            expect(createIntroPage).toHaveBeenCalled();
-        });
-
     });
 
     describe("fitToScreen Function", function () {
@@ -57,5 +44,29 @@ describe("Memory Game", function () {
             });
         });
     });
+
+    describe("On Load Setup", function () {
+
+        it("With onLoad() function, fitToScreen() function should be called", function () {
+            fitToScreen = jasmine.createSpy();
+            onLoad();
+            expect(fitToScreen).toHaveBeenCalled();
+        });
+
+        it("With onLoad() function, adjustFontSize() function should be called", function () {
+            adjustFontSize = jasmine.createSpy();
+            onLoad();
+            expect(adjustFontSize).toHaveBeenCalled();
+        });
+
+        it("With onLoad() function, createIntroPage() function should be called", function () {
+            createIntroPage = jasmine.createSpy();
+            onLoad();
+            expect(createIntroPage).toHaveBeenCalled();
+        });
+
+    });
+
+    
 
 });
