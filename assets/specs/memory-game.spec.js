@@ -47,30 +47,6 @@ describe("Memory Game", function () {
         });
     });
 
-    //On load function is responsible for initial screen setup when the page is loaded
-    describe("On Load Setup", function () {
-
-        it("With onLoad() function, fitToScreen() function should be called", function () {
-            fitToScreen = jasmine.createSpy();
-            onLoad();
-            expect(fitToScreen).toHaveBeenCalled();
-            expect(fitToScreen).toHaveBeenCalledWith($(window).width(), $(window).height());
-        });
-
-        it("With onLoad() function, adjustFontSize() function should be called", function () {
-            adjustFontSize = jasmine.createSpy();
-            onLoad();
-            expect(adjustFontSize).toHaveBeenCalled();
-            expect(fitToScreen).toHaveBeenCalledWith($(window).width(), $(window).height());
-        });
-
-        it("With onLoad() function, createIntroPage() function should be called", function () {
-            createIntroPage = jasmine.createSpy();
-            onLoad();
-            expect(createIntroPage).toHaveBeenCalled();
-        });
-    });
-
     //To meka sure the game has fluent responsive design, window resize funtion is created 
     describe("Window resize action", function () {
         const spy = jasmine.createSpy();
@@ -112,4 +88,66 @@ describe("Memory Game", function () {
         });
     });
 
+    //On load function is responsible for initial screen setup when the page is loaded
+    describe("On Load Setup - onLoad() function", function () {
+
+        it("Should be defined", function () {
+            expect(typeof onLoad).toBe('function');
+        });
+
+        it("With onLoad() function, fitToScreen() function should be called", function () {
+            fitToScreen = jasmine.createSpy();
+            onLoad();
+            expect(fitToScreen).toHaveBeenCalled();
+            expect(fitToScreen).toHaveBeenCalledWith($(window).width(), $(window).height());
+        });
+
+        it("With onLoad() function, adjustFontSize() function should be called", function () {
+            adjustFontSize = jasmine.createSpy();
+            onLoad();
+            expect(adjustFontSize).toHaveBeenCalled();
+            expect(fitToScreen).toHaveBeenCalledWith($(window).width(), $(window).height());
+        });
+
+        it("With onLoad() function, createIntroPage() function should be called", function () {
+            createIntroPage = jasmine.createSpy();
+            onLoad();
+            expect(createIntroPage).toHaveBeenCalled();
+        });
+    });
+
+    describe("createIntroPage function", function () {
+
+        beforeAll(function () {
+            $('#fixture').remove();
+            $.ajax({
+                async: false, // must be synchronous to guarantee that no tests are run before fixture is loaded
+                dataType: 'html',
+                url: 'assets/specs/fixtures/htmlFixture2.html',
+                success: function (data) {
+                    $('body').append($(data));
+                }
+            });
+        });
+
+        
+        describe("Should create card elements in HTML", function () {
+            it("Should be defined", function () {
+                expect(typeof createIntroPage).toBe('function');
+            });
+
+            it("Should set score board visibility to hidden", function () {
+                expect(scoreBoard.style.visibility).toBe("hidden");
+            });
+
+            it("Should set score board visibility to hidden", function () {
+                expect(homeButton.style.visibility).toBe("hidden");
+            });
+
+            it("Should create respective HTML elements with corresponding classes", function () {
+                createIntroPage();
+                expect(document.querySelectorAll('.grid').length).toBe(1);
+            });
+        });
+    });
 });
