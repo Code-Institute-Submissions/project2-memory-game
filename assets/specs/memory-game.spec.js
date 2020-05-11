@@ -130,8 +130,11 @@ describe("Memory Game", function () {
             });
         });
 
-        
-        describe("Should create card elements in HTML", function () {
+        beforeEach(function () {
+            introPage = new createIntroPage();
+        });
+
+        describe("Should create intro page HTML elements", function () {
             it("Should be defined", function () {
                 expect(typeof createIntroPage).toBe('function');
             });
@@ -145,9 +148,11 @@ describe("Memory Game", function () {
             });
 
             it("Should create respective HTML elements with corresponding classes", function () {
-                createIntroPage();
+                introPage = new createIntroPage();
                 expect(document.querySelectorAll('.grid').length).toBe(1);
             });
         });
     });
+
 });
+

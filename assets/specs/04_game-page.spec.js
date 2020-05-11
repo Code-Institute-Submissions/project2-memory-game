@@ -6,7 +6,7 @@ describe("Memory Game", function () {
         $.ajax({
             async: false, // must be synchronous to guarantee that no tests are run before fixture is loaded
             dataType: 'html',
-            url: 'assets/specs/htmlFixture.html',
+            url: 'assets/specs/fixtures/htmlFixture2.html',
             success: function (data) {
                 $('body').append($(data));
             }
@@ -125,6 +125,7 @@ describe("Memory Game", function () {
                 expect(document.querySelectorAll('#fixture .flipCard').length).toBe(16);
                 expect(document.querySelectorAll('#fixture .frontSide').length).toBe(16);
                 expect(document.querySelectorAll('#fixture .backSide').length).toBe(16);
+                expect($('.card')).toExist();
             });
 
             
