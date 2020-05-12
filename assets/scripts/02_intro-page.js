@@ -29,13 +29,15 @@ function createIntroPage() {
     grid.appendChild(introduction);
 
     //Creating Normal Mode button and defining button features
+    button1.setAttribute('id', 'normalMode');
     button1.setAttribute('class', 'button');
     button1.innerHTML = '<h4>Normal Mode</h4>';
     button1.addEventListener('click', NormalMode);
     grid.appendChild(button1);
 
     //Creating Challenge Mode button and defining button features
-    button2.setAttribute('class', 'button');
+    button2.setAttribute('id', 'challengeMode');   
+    button2.setAttribute('class', 'button');    
     button2.innerHTML = '<h4>Challenge Mode</h4>';
     button2.addEventListener('click', ChallengeMode);
     grid.appendChild(button2);

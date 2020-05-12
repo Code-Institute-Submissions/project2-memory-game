@@ -148,18 +148,137 @@ describe("Memory Game", function () {
                 expect(scoreBoard.style.visibility).toBe("hidden");
             });
 
-            it("Should set score board visibility to hidden", function () {
+            it("Should set home button visibility to hidden", function () {
                 expect(homeButton.style.visibility).toBe("hidden");
             });
 
-            it("Should create respective HTML elements with corresponding classes", function () {
+            it("Should create respective HTML elements with corresponding classes and ids", function () {
                 expect($('.introduction')).toExist();
-                expect($('.button').length).toBe(2);
+                expect($('#normalMode')).toExist();
+                expect($('#challengeMode')).toExist();
             });
 
+            it("Click on 'Normal Mode' button should trigger createDifficultyPage() and change 'challengeMode' variable to 0", function () {
+               createDifficultyPage = jasmine.createSpy();
+               $('#normalMode').click();
+               expect(createDifficultyPage).toHaveBeenCalled();
+               expect(challengeMode).toBe(0);
+            });
+
+            it("Click on 'Challenge Mode' button should trigger createDifficultyPage() and change 'challengeMode' variable to 1", function () {
+               createDifficultyPage = jasmine.createSpy();
+               $('#challengeMode').click();
+               expect(createDifficultyPage).toHaveBeenCalled();
+               expect(challengeMode).toBe(1);
+            });
             
         });
     });
 
+    describe("createDifficultyPage function", function () {
+
+        beforeEach(function () {
+            jasmine.getFixtures().fixturesPath = 'assets/specs/fixtures';
+            loadFixtures('htmlFixture.html');
+            difficultyPage = new createDifficultyPage();
+        });
+
+        describe("Should create difficulty page HTML elements", function () {
+            it("Should be defined", function () {
+                expect(typeof createDifficultyPage).toBe('function');
+            });
+
+            it("Should set score board visibility to hidden", function () {
+                expect(scoreBoard.style.visibility).toBe("hidden");
+            });
+
+            it("Should set home button visibility to visible", function () {
+                expect(homeButton.style.visibility).toBe("visible");
+            });
+
+            it("Should create respective HTML elements with corresponding classes", function () {
+                expect($('.difficulty1')).toExist();
+                expect($('.difficulty2')).toExist();
+                expect($('.difficulty3')).toExist();
+                expect($('.difficulty4')).toExist();
+            });
+
+            it("Normal Mode: Click on '16 Cards' button should trigger opening game page with 16 cards, time display is set to 00:00:00", function () {
+               createGamePage = jasmine.createSpy();
+               challengeMode = 0;
+               $('.difficulty1').click();
+               expect(createGamePage).toHaveBeenCalled();
+               expect(createGamePage).toHaveBeenCalledWith(16);
+               expect(timeDisplay.textContent).toBe('00:00:00');
+            });
+
+            it("Normal Mode: Click on '36 Cards' button should trigger opening game page with 36 cards, time display is set to 00:00:00", function () {
+               createGamePage = jasmine.createSpy();
+               challengeMode = 0;
+               $('.difficulty2').click();
+               expect(createGamePage).toHaveBeenCalled();
+               expect(createGamePage).toHaveBeenCalledWith(36);
+               expect(timeDisplay.textContent).toBe('00:00:00');
+            });
+
+            it("Normal Mode: Click on '64 Cards' button should trigger opening game page with 64 cards, time display is set to 00:00:00", function () {
+               createGamePage = jasmine.createSpy();
+               challengeMode = 0;
+               $('.difficulty3').click();
+               expect(createGamePage).toHaveBeenCalled();
+               expect(createGamePage).toHaveBeenCalledWith(64);
+               expect(timeDisplay.textContent).toBe('00:00:00');
+            });
+
+            it("Normal Mode: Click on '100 Cards' button should trigger opening game page with 100 cards, time display is set to 00:00:00", function () {
+               createGamePage = jasmine.createSpy();
+               challengeMode = 0;
+               $('.difficulty4').click();
+               expect(createGamePage).toHaveBeenCalled();
+               expect(createGamePage).toHaveBeenCalledWith(100);
+               expect(timeDisplay.textContent).toBe('00:00:00');
+            });
+
+            it("Challenge Mode: Click on '16 Cards' button should trigger opening game page with 16 cards, time display is set to 00:01:00", function () {
+               createGamePage = jasmine.createSpy();
+               challengeMode = 1;
+               $('.difficulty1').click();
+               expect(createGamePage).toHaveBeenCalled();
+               expect(createGamePage).toHaveBeenCalledWith(16);
+               expect(timeDisplay.textContent).toBe('00:01:00');
+               expect(totalTimeToGo).toBe(60);
+            });
+
+            it("Challenge Mode: Click on '36 Cards' button should trigger opening game page with 36 cards, time display is set to 00:02:00", function () {
+               createGamePage = jasmine.createSpy();
+               challengeMode = 1;
+               $('.difficulty2').click();
+               expect(createGamePage).toHaveBeenCalled();
+               expect(createGamePage).toHaveBeenCalledWith(36);
+               expect(timeDisplay.textContent).toBe('00:02:00');
+               expect(totalTimeToGo).toBe(120);
+            });
+
+            it("Challenge Mode: Click on '64 Cards' button should trigger opening game page with 64 cards, time display is set to 00:04:00", function () {
+               createGamePage = jasmine.createSpy();
+               challengeMode = 1;
+               $('.difficulty3').click();
+               expect(createGamePage).toHaveBeenCalled();
+               expect(createGamePage).toHaveBeenCalledWith(64);
+               expect(timeDisplay.textContent).toBe('00:04:00');
+               expect(totalTimeToGo).toBe(240);
+            });
+
+            it("Challenge Mode: Click on '100 Cards' button should trigger opening game page with 100 cards, time display is set to 00:07:00", function () {
+               createGamePage = jasmine.createSpy();
+               challengeMode = 1;
+               $('.difficulty4').click();
+               expect(createGamePage).toHaveBeenCalled();
+               expect(createGamePage).toHaveBeenCalledWith(100);
+               expect(timeDisplay.textContent).toBe('00:07:00');
+               expect(totalTimeToGo).toBe(420);
+            });   
+        });
+    });
 });
 
