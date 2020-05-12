@@ -485,8 +485,9 @@ describe("Memory Game", function () {
             expect(createGameOverPage).toHaveBeenCalledWith('won');
         });
 
-        it("In 'Normal Mode' stopWatch() function should be called after the first card is flipped, timer() should not be called, other moves to be ignored", function () {
+        it("In 'Normal Mode', stopWatch() function should be called after the first card is flipped, timer() should not be called, other moves to be ignored", function () {
             challengeMode = 0;
+            firstMove = 0;
             stopWatch = jasmine.createSpy();
             timer = jasmine.createSpy();
             $('[data-id="0"]').click();
@@ -494,10 +495,12 @@ describe("Memory Game", function () {
             $('[data-id="2"]').click();
             expect(stopWatch.calls.count()).toEqual(1);
             expect(timer.calls.count()).toEqual(0);
+            expect(firstMove).toBe(1);
         });
 
-        it("In 'Challenge Mode' stopWatch() and timer() function should be called after the first card is flipped, other moves to be ignored", function () {
+        it("In 'Challenge Mode', stopWatch() and timer() function should be called after the first card is flipped, other moves to be ignored", function () {
             challengeMode = 1;
+            firstMove=0;
             stopWatch = jasmine.createSpy();
             timer = jasmine.createSpy();
             $('[data-id="0"]').click();
@@ -505,6 +508,7 @@ describe("Memory Game", function () {
             $('[data-id="2"]').click();
             expect(stopWatch.calls.count()).toEqual(1);
             expect(timer.calls.count()).toEqual(1);
+            expect(firstMove).toBe(1);
         });
 
         it("After the first call, stopWatch() function should be called every second and update time display", function () {
@@ -514,13 +518,18 @@ describe("Memory Game", function () {
             minutesElapsed = 0;
             hoursElapsed = 0;
 
-            stopWatch();
+            $('[data-id="0"]').click();
+            $('[data-id="1"]').click();
+            $('[data-id="2"]').click();
             
             jasmine.clock().tick(6000);
             expect(timeDisplay.textContent).toBe('00:00:06');
         });
 
-        it("After the first call, timer() function should be called every second and update time display ", function () {
+        it("After the first call, timer() function should be called every second and update time display; after set time expiry 'createGameOverPage()' function to be called.", function () {
+            createGameOverPage = jasmine.createSpy();
+            challengeMode = 1;
+            
             timeDisplay = $('#time');
             
             secondsToGo = 0;
@@ -529,7 +538,9 @@ describe("Memory Game", function () {
 
             totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo;
 
-            timer();
+            $('[data-id="0"]').click();
+            $('[data-id="1"]').click();
+            $('[data-id="2"]').click();
             
             jasmine.clock().tick(6000);
             expect(timeDisplay.textContent).toBe('00:09:54');
@@ -539,6 +550,9 @@ describe("Memory Game", function () {
 
             jasmine.clock().tick(1000);
             expect(timeDisplay.textContent).toBe('EXPIRED');
+            expect(createGameOverPage).toHaveBeenCalled;
+            expect(createGameOverPage).toHaveBeenCalledWith('lost');
+
         });
 
     });
