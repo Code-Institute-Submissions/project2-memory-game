@@ -57,7 +57,7 @@ describe("Memory Game", function () {
 
     //To make sure the game has fluent responsive design, window resize funtion is created 
     describe("Window resize action", function () {
-        
+
         const spy = jasmine.createSpy();
         const testWidth = 420;
 
@@ -159,19 +159,19 @@ describe("Memory Game", function () {
             });
 
             it("Click on 'Normal Mode' button should trigger createDifficultyPage() and change 'challengeMode' variable to 0", function () {
-               createDifficultyPage = jasmine.createSpy();
-               $('#normalMode').click();
-               expect(createDifficultyPage).toHaveBeenCalled();
-               expect(challengeMode).toBe(0);
+                createDifficultyPage = jasmine.createSpy();
+                $('#normalMode').click();
+                expect(createDifficultyPage).toHaveBeenCalled();
+                expect(challengeMode).toBe(0);
             });
 
             it("Click on 'Challenge Mode' button should trigger createDifficultyPage() and change 'challengeMode' variable to 1", function () {
-               createDifficultyPage = jasmine.createSpy();
-               $('#challengeMode').click();
-               expect(createDifficultyPage).toHaveBeenCalled();
-               expect(challengeMode).toBe(1);
+                createDifficultyPage = jasmine.createSpy();
+                $('#challengeMode').click();
+                expect(createDifficultyPage).toHaveBeenCalled();
+                expect(challengeMode).toBe(1);
             });
-            
+
         });
     });
 
@@ -204,81 +204,343 @@ describe("Memory Game", function () {
             });
 
             it("Normal Mode: Click on '16 Cards' button should trigger opening game page with 16 cards, time display is set to 00:00:00", function () {
-               createGamePage = jasmine.createSpy();
-               challengeMode = 0;
-               $('.difficulty1').click();
-               expect(createGamePage).toHaveBeenCalled();
-               expect(createGamePage).toHaveBeenCalledWith(16);
-               expect(timeDisplay.textContent).toBe('00:00:00');
+                createGamePage = jasmine.createSpy();
+                challengeMode = 0;
+                $('.difficulty1').click();
+                expect(createGamePage).toHaveBeenCalled();
+                expect(createGamePage).toHaveBeenCalledWith(16);
+                expect(timeDisplay.textContent).toBe('00:00:00');
             });
 
             it("Normal Mode: Click on '36 Cards' button should trigger opening game page with 36 cards, time display is set to 00:00:00", function () {
-               createGamePage = jasmine.createSpy();
-               challengeMode = 0;
-               $('.difficulty2').click();
-               expect(createGamePage).toHaveBeenCalled();
-               expect(createGamePage).toHaveBeenCalledWith(36);
-               expect(timeDisplay.textContent).toBe('00:00:00');
+                createGamePage = jasmine.createSpy();
+                challengeMode = 0;
+                $('.difficulty2').click();
+                expect(createGamePage).toHaveBeenCalled();
+                expect(createGamePage).toHaveBeenCalledWith(36);
+                expect(timeDisplay.textContent).toBe('00:00:00');
             });
 
             it("Normal Mode: Click on '64 Cards' button should trigger opening game page with 64 cards, time display is set to 00:00:00", function () {
-               createGamePage = jasmine.createSpy();
-               challengeMode = 0;
-               $('.difficulty3').click();
-               expect(createGamePage).toHaveBeenCalled();
-               expect(createGamePage).toHaveBeenCalledWith(64);
-               expect(timeDisplay.textContent).toBe('00:00:00');
+                createGamePage = jasmine.createSpy();
+                challengeMode = 0;
+                $('.difficulty3').click();
+                expect(createGamePage).toHaveBeenCalled();
+                expect(createGamePage).toHaveBeenCalledWith(64);
+                expect(timeDisplay.textContent).toBe('00:00:00');
             });
 
             it("Normal Mode: Click on '100 Cards' button should trigger opening game page with 100 cards, time display is set to 00:00:00", function () {
-               createGamePage = jasmine.createSpy();
-               challengeMode = 0;
-               $('.difficulty4').click();
-               expect(createGamePage).toHaveBeenCalled();
-               expect(createGamePage).toHaveBeenCalledWith(100);
-               expect(timeDisplay.textContent).toBe('00:00:00');
+                createGamePage = jasmine.createSpy();
+                challengeMode = 0;
+                $('.difficulty4').click();
+                expect(createGamePage).toHaveBeenCalled();
+                expect(createGamePage).toHaveBeenCalledWith(100);
+                expect(timeDisplay.textContent).toBe('00:00:00');
             });
 
             it("Challenge Mode: Click on '16 Cards' button should trigger opening game page with 16 cards, time display is set to 00:01:00", function () {
-               createGamePage = jasmine.createSpy();
-               challengeMode = 1;
-               $('.difficulty1').click();
-               expect(createGamePage).toHaveBeenCalled();
-               expect(createGamePage).toHaveBeenCalledWith(16);
-               expect(timeDisplay.textContent).toBe('00:01:00');
-               expect(totalTimeToGo).toBe(60);
+                createGamePage = jasmine.createSpy();
+                challengeMode = 1;
+                $('.difficulty1').click();
+                expect(createGamePage).toHaveBeenCalled();
+                expect(createGamePage).toHaveBeenCalledWith(16);
+                expect(timeDisplay.textContent).toBe('00:01:00');
+                expect(totalTimeToGo).toBe(60);
             });
 
             it("Challenge Mode: Click on '36 Cards' button should trigger opening game page with 36 cards, time display is set to 00:02:00", function () {
-               createGamePage = jasmine.createSpy();
-               challengeMode = 1;
-               $('.difficulty2').click();
-               expect(createGamePage).toHaveBeenCalled();
-               expect(createGamePage).toHaveBeenCalledWith(36);
-               expect(timeDisplay.textContent).toBe('00:02:00');
-               expect(totalTimeToGo).toBe(120);
+                createGamePage = jasmine.createSpy();
+                challengeMode = 1;
+                $('.difficulty2').click();
+                expect(createGamePage).toHaveBeenCalled();
+                expect(createGamePage).toHaveBeenCalledWith(36);
+                expect(timeDisplay.textContent).toBe('00:02:00');
+                expect(totalTimeToGo).toBe(120);
             });
 
             it("Challenge Mode: Click on '64 Cards' button should trigger opening game page with 64 cards, time display is set to 00:04:00", function () {
-               createGamePage = jasmine.createSpy();
-               challengeMode = 1;
-               $('.difficulty3').click();
-               expect(createGamePage).toHaveBeenCalled();
-               expect(createGamePage).toHaveBeenCalledWith(64);
-               expect(timeDisplay.textContent).toBe('00:04:00');
-               expect(totalTimeToGo).toBe(240);
+                createGamePage = jasmine.createSpy();
+                challengeMode = 1;
+                $('.difficulty3').click();
+                expect(createGamePage).toHaveBeenCalled();
+                expect(createGamePage).toHaveBeenCalledWith(64);
+                expect(timeDisplay.textContent).toBe('00:04:00');
+                expect(totalTimeToGo).toBe(240);
             });
 
             it("Challenge Mode: Click on '100 Cards' button should trigger opening game page with 100 cards, time display is set to 00:07:00", function () {
-               createGamePage = jasmine.createSpy();
-               challengeMode = 1;
-               $('.difficulty4').click();
-               expect(createGamePage).toHaveBeenCalled();
-               expect(createGamePage).toHaveBeenCalledWith(100);
-               expect(timeDisplay.textContent).toBe('00:07:00');
-               expect(totalTimeToGo).toBe(420);
-            });   
+                createGamePage = jasmine.createSpy();
+                challengeMode = 1;
+                $('.difficulty4').click();
+                expect(createGamePage).toHaveBeenCalled();
+                expect(createGamePage).toHaveBeenCalledWith(100);
+                expect(timeDisplay.textContent).toBe('00:07:00');
+                expect(totalTimeToGo).toBe(420);
+            });
         });
+    });
+
+    describe("createGamePage function and other related functions", function () {
+
+        beforeEach(function () {
+            jasmine.getFixtures().fixturesPath = 'assets/specs/fixtures';
+            loadFixtures('htmlFixture.html');
+        });
+
+        describe("My shuffleArray function", function () {
+
+
+            beforeEach(function () {
+                shuffle = new shuffleArray([]);
+            });
+
+            describe("Returns shuffled array", function () {
+                it("Should be defined", function () {
+                    expect(typeof shuffleArray).toBe('function');
+                });
+
+                it("Should return error if argument (array) is not passed", function () {
+                    expect(function () { shuffleArray() }).toThrow(Error('array argument is not defined'));
+                });
+
+                it("Should return array", function () {
+                    var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                    var result = shuffleArray(array);
+                    expect(typeof result).toBe('object');
+                });
+
+                it("Should return shuffled array", function () {
+                    var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                    var arrayString = array.toString()
+                    var shuffledArrayString = shuffleArray(array).toString();
+                    expect(arrayString === shuffledArrayString).toBe(false);
+                });
+
+                it("Lenght of shuffled array should be same as lenght of original array", function () {
+                    var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                    var length1 = array.length;
+                    var length2 = shuffleArray(array).length;
+                    expect(length1 === length2).toBe(true);
+                });
+
+                it("Shuffled array contain same values as original array", function () {
+                    var array = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+                    var shuffledArray = shuffleArray(array);
+                    expect(array.sort() === shuffledArray.sort()).toBe(true);
+                });
+            });
+        });
+
+        describe("My cardsArray function", function () {
+
+            beforeEach(function () {
+                array = new cardsArray([]);
+            });
+
+            describe("Returns array of shuffled cards", function () {
+                it("Should be defined", function () {
+                    expect(typeof cardsArray).toBe('function');
+                });
+
+                it("Should return error if argument (numberOfCards) is not passed", function () {
+                    expect(function () { cardsArray() }).toThrow(Error('numberOfCards argument is not defined'));
+                });
+
+                it("numberOfCards argument must be divisible by 2", function () {
+                    expect(function () { cardsArray(3) }).toThrow(Error('numberOfCards argument must be divisible by 2'));
+                });
+
+                it("Length of Cards array should be equal to 'numberOfCards' argument", function () {
+                    var numberOfCards = 10;
+                    var lenghtOfCardsArray = cardsArray(10).length;
+                    expect(numberOfCards === lenghtOfCardsArray).toBe(true);
+                });
+
+                it("Each record in the Cards array should be duplicated", function () {
+                    var arrayOfCards = cardsArray(8).sort();
+                    var card1 = arrayOfCards[0];
+                    var card2 = arrayOfCards[1];
+                    var card3 = arrayOfCards[2];
+                    var card4 = arrayOfCards[3];
+                    var card5 = arrayOfCards[4];
+                    var card6 = arrayOfCards[5];
+                    var card7 = arrayOfCards[6];
+                    var card8 = arrayOfCards[7];
+                    expect(card1 === card2 && card3 === card4 && card5 === card6 && card7 === card8).toBe(true);
+                });
+            });
+
+        });
+
+        describe("My createGamePage function", function () {
+
+            beforeEach(function () {
+                game = new createGamePage([]);
+            });
+
+            describe("Should create card elements in HTML", function () {
+                it("Should set score board visibility to visible", function () {
+                    expect(scoreBoard.style.visibility).toBe("visible");
+                });
+
+                it("Should set home button visibility to visible", function () {
+                    expect(homeButton.style.visibility).toBe("visible");
+                });
+
+                it("Should be defined", function () {
+                    expect(typeof createGamePage).toBe('function');
+                });
+
+                it("Should return error if argument (numberOfCards) is not passed", function () {
+                    expect(function () { createGamePage() }).toThrow(Error('numberOfCards argument is not defined'));
+                });
+
+                it("Should argument must be divisible by 2", function () {
+                    expect(function () { createGamePage(3) }).toThrow(Error('numberOfCards argument must be divisible by 2'));
+                });
+
+                it("Should create respective HTML elements with corresponding classes", function () {
+                    game = new createGamePage(16);
+                    expect($('.flipCardContainer').length).toBe(16);
+                    expect($('.card').length).toBe(16);
+                    expect($('.icon-size16').length).toBe(16);
+                    expect($('.flipCard').length).toBe(16);
+                    expect($('.frontSide').length).toBe(16);
+                    expect($('.backSide').length).toBe(16);
+                });
+
+                it("Click on card should call 'flipCard()' function", function () {
+                    flipCard = jasmine.createSpy();
+                    game = new createGamePage(16);
+                    $('[data-id="0"]').click();
+                    $('[data-id="10"]').click();
+                    $('[data-id="13"]').click();
+                    $('[data-id="15"]').click();
+                    expect(flipCard).toHaveBeenCalled();
+                    expect(flipCard.calls.count()).toEqual(4);
+                });
+            });
+        });
+    });
+
+    describe("Game logic", function () {
+        beforeEach(function () {
+            jasmine.getFixtures().fixturesPath = 'assets/specs/fixtures';
+            loadFixtures('htmlFixture.html');
+            createGamePage(6);
+            jasmine.clock().install();
+        });
+
+        afterEach(function () {
+            jasmine.clock().uninstall();
+        });
+
+        it("By clicking on two different cards, checkForMatch function should be initiated", function () {
+            checkForMatch = jasmine.createSpy();
+            $('[data-id="0"]').click();
+            $('[data-id="1"]').click();
+            jasmine.clock().tick(1000);
+            expect(checkForMatch).toHaveBeenCalled();
+        });
+
+        it("Maximum two cards should be flipped at once", function () {
+            checkForMatch = jasmine.createSpy();
+            cardsChosen = ['a', 'b'];
+            cardsChosenId = [0, 1];
+            $('[data-id="0"]').click();
+            expect(checkForMatch).not.toHaveBeenCalled();
+        });
+
+        it("Cards with same picture should disappear", function () {
+            cards = document.querySelectorAll('.flipCardContainer');
+            cardsChosen = ['a', 'a'];
+            cardsChosenId = ['0', '1'];
+            checkForMatch = new checkForMatch();
+            expect(cards[0].style.visibility).toBe('hidden');
+            expect(cards[1].style.visibility).toBe('hidden');
+            expect(wonDisplay.textContent).toBe('1');
+            expect(failDisplay.textContent).toBe('0');
+        });
+
+        it("Cards with different pictures should flip back", function () {
+            cards = document.querySelectorAll('.flipCardContainer');
+            cardsChosen = ['a', 'b'];
+            cardsChosenId = ['0', '1'];
+            checkForMatch = new checkForMatch();
+            expect(cards[0].style.visibility).toBe('');
+            expect(cards[1].style.visibility).toBe('');
+            expect(wonDisplay.textContent).toBe('0');
+            expect(failDisplay.textContent).toBe('1');
+        });
+
+        it("If all cards are turned, createGameOverPage() should be called", function () {
+            createGameOverPage = jasmine.createSpy();
+            cards = document.querySelectorAll('.flipCardContainer');
+            cardsChosen = ['a', 'a'];
+            cardsChosenId = ['0', '1'];
+            cardsWon = [['b', 'b'], ['c', 'c']];
+            checkForMatch = new checkForMatch();
+            expect(createGameOverPage).toHaveBeenCalled();
+            expect(createGameOverPage).toHaveBeenCalledWith('won');
+        });
+
+        it("In 'Normal Mode' stopWatch() function should be called after the first card is flipped, timer() should not be called, other moves to be ignored", function () {
+            challengeMode = 0;
+            stopWatch = jasmine.createSpy();
+            timer = jasmine.createSpy();
+            $('[data-id="0"]').click();
+            $('[data-id="1"]').click();
+            $('[data-id="2"]').click();
+            expect(stopWatch.calls.count()).toEqual(1);
+            expect(timer.calls.count()).toEqual(0);
+        });
+
+        it("In 'Challenge Mode' stopWatch() and timer() function should be called after the first card is flipped, other moves to be ignored", function () {
+            challengeMode = 1;
+            stopWatch = jasmine.createSpy();
+            timer = jasmine.createSpy();
+            $('[data-id="0"]').click();
+            $('[data-id="1"]').click();
+            $('[data-id="2"]').click();
+            expect(stopWatch.calls.count()).toEqual(1);
+            expect(timer.calls.count()).toEqual(1);
+        });
+
+        it("After the first call, stopWatch() function should be called every second and update time display", function () {
+            timeDisplay = $('#time');
+            
+            secondsElapsed = 0;
+            minutesElapsed = 0;
+            hoursElapsed = 0;
+
+            stopWatch();
+            
+            jasmine.clock().tick(6000);
+            expect(timeDisplay.textContent).toBe('00:00:06');
+        });
+
+        it("After the first call, timer() function should be called every second and update time display ", function () {
+            timeDisplay = $('#time');
+            
+            secondsToGo = 0;
+            minutesToGo = 10;
+            hoursToGo = 0;
+
+            totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo;
+
+            timer();
+            
+            jasmine.clock().tick(6000);
+            expect(timeDisplay.textContent).toBe('00:09:54');
+
+            jasmine.clock().tick(593999);
+            expect(timeDisplay.textContent).toBe('00:00:01');
+
+            jasmine.clock().tick(1000);
+            expect(timeDisplay.textContent).toBe('EXPIRED');
+        });
+
     });
 });
 
