@@ -513,7 +513,9 @@ describe("Memory Game", function () {
 
         it("After the first call, stopWatch() function should be called every second and update time display", function () {
             timeDisplay = $('#time');
-            
+            firstMove=0;
+            challengeMode = 0;
+
             secondsElapsed = 0;
             minutesElapsed = 0;
             hoursElapsed = 0;
@@ -524,10 +526,18 @@ describe("Memory Game", function () {
             
             jasmine.clock().tick(6000);
             expect(timeDisplay.textContent).toBe('00:00:06');
+            expect(timeElapsed).toBe('00:00:06');
+
+            challengeMode = 1;
+            jasmine.clock().tick(6000);
+            expect(timeDisplay.textContent).toBe('00:00:06');
+            expect(timeElapsed).toBe('00:00:12');
+
         });
 
         it("After the first call, timer() function should be called every second and update time display; after set time expiry 'createGameOverPage()' function to be called.", function () {
             createGameOverPage = jasmine.createSpy();
+            firstMove=0;
             challengeMode = 1;
             
             timeDisplay = $('#time');
