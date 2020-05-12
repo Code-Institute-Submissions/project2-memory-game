@@ -1,13 +1,13 @@
 //variables for game container
-const square = document.querySelector('.square');   //game grid container - responsive square
-const grid = document.querySelector('.grid');   //element where the particular game screens are populated
+var square = document.querySelector('.square');   //game grid container - responsive square
+var grid = document.querySelector('.grid');   //element where the particular game screens are populated
 
 //variables for header
-const wonDisplay = document.querySelector('#won');  //element for displaying number of succesful attempts
-const failDisplay = document.querySelector('#failed');  //element for displaying failed attempts
-const timeDisplay = document.querySelector('#time');    //element for displaying time (timer or stopwatch depending on game mode)
-const scoreBoard = document.querySelector('.score-board');  //container for wonDisplay, failDisplay and timeDisplay
-const homeButton = document.querySelector('.home-button-icon'); //container for X button for ending game and return to home screen
+var wonDisplay = document.querySelector('#won');  //element for displaying number of succesful attempts
+var failDisplay = document.querySelector('#failed');  //element for displaying failed attempts
+var timeDisplay = document.querySelector('#time');    //element for displaying time (timer or stopwatch depending on game mode)
+var scoreBoard = document.querySelector('.score-board');  //container for wonDisplay, failDisplay and timeDisplay
+var homeButton = document.querySelector('.home-button-icon'); //container for X button for ending game and return to home screen
 
 
 //game variables
