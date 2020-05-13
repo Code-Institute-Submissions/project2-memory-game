@@ -70,6 +70,10 @@ flipCardContainer.addEventListener('click', function(){
   border: solid 1px green;
   border-radius: 5px;
   color: #fff;
+  -webkit-transform: rotateX(0deg); /*to fix bug in Firefox*/
+  -moz-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
 }
 
 .backSide:hover {
