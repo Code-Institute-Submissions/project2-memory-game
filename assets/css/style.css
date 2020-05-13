@@ -131,11 +131,13 @@ header {
 }
 
 .time-cell {
+    height: 50px;
     vertical-align: bottom;
     text-align: center;
 }
 
 .score-cell {
+    height: 50px;
     vertical-align: top;
     text-align: center;
 }
@@ -143,7 +145,8 @@ header {
 /* Score Board - time*/
 .score-board h2 {
     width: 100%;
-    font-size: 1.5rem;
+    height: 40px;
+    font-size: 25px;
     font-weight: 500;
     text-align: center;
 }
@@ -151,7 +154,8 @@ header {
 /* Score Board - score - successful/failed moves*/
 .score-board h5 {
     width: 100%;
-    font-size: 1.2rem;
+    height: 40px;
+    font-size: 20px;
     font-weight: 500;
     text-align: center;
 }
@@ -159,9 +163,11 @@ header {
 /*Fixed score board font size on screens with width of less than 650px*/
 @media only screen and (max-width: 650px) {
     .score-board h2 {
+        height: 30px;
         font-size: 16px;
     }
     .score-board h5 {
+        height: 30px;
         font-size: 14px;
     }
 }
