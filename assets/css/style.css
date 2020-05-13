@@ -89,19 +89,20 @@ header {
     color: white;
 }
 
-/*Logo text to be hidden on screens with widht of less than 650px*/
+/*Logo text to be hidden on screens with widht of less than 750px*/
 @media only screen and (max-width: 750px) {
     .logo-text {
         display: none;
     }
 }
 
-/*logo first line*/
+
 .logo-text div {
     display: table-row;
     height: 50%;
 }
 
+/*logo first line*/
 .logo-text div h1 {
     height: 50px;
     padding-top: 15px;
@@ -121,7 +122,7 @@ header {
 .score-board table {
     height: 100px;
     width: 100%;
-    table-layout: fixed;
+    table-layout: fixed; /*Cells in other rows do not affect column widths*/
     margin: auto;
 }
 
@@ -155,6 +156,7 @@ header {
     text-align: center;
 }
 
+/*Fixed score board font size on screens with width of less than 650px*/
 @media only screen and (max-width: 650px) {
     .score-board h2 {
         font-size: 16px;
