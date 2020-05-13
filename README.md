@@ -56,7 +56,7 @@ Game is logically structured to 4 screens:
 [Website wireframe](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/wireframes/wireframes.pdf)
 
 ### Surface
-Greenscale colorscheme.
+Green color scheme.
 
 ## Technologies
 1. HTML
@@ -69,7 +69,7 @@ Greenscale colorscheme.
 
 ## Features
 * Interactive design
-* Continously responsive design
+* Continuously responsive design
 * Flip card animation effect
 * Fully JavaScript powered
 * Two game modes
@@ -89,9 +89,9 @@ Greenscale colorscheme.
 * User story was tested by Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/SpecRunner.html)
 
 ### Browsers and devices
-* Responsivness has been tested using Inspect feature of Chrome and also on [Am I Responsive?](http://ami.responsivedesign.is) website.
+* Responsiveness  has been tested using Inspect feature of Chrome and also on [Am I Responsive?](http://ami.responsivedesign.is) website.
 * Website has been tested on iPhone XS plus. Other mobile devices screen sizes were emulated via Chrome Inspect feature.
-* Website has been tested on multiple browsers (Chrome, Safari, Internet Explorer, Edge, Opera and FireFox).
+* Website has been tested on multiple browsers (Chrome, Safari, Internet Explorer, Edge, Opera and Firefox).
 
 
 ## Deployment
@@ -113,13 +113,17 @@ Images were resized to fit the website design and to reduce website loading time
 ### Acknowledgements
 CSS flip card effect was created based on the YouTube video tutorial and adjusted to meet the game requirements [YouTube](https://www.youtube.com/watch?v=Lc6wyl1KdOc).
 
-All used icons come from [Font Awesome](https://fontawesome.com/) version 5.13.0. Icons were collected from [Font Awesome Free Galery](https://fontawesome.com/icons?d=gallery&m=free) via console using following function
+All used icons come from [Font Awesome](https://fontawesome.com/) version 5.13.0. Icons were collected from [Font Awesome Free Gallery](https://fontawesome.com/icons?d=gallery&m=free) via console using following function
 
-`function collectIcons() {
-  var linkarray = []; for (let i=0; i < document.getElementsByTagName("i").length; i++) {linkarray.push(document.getElementsByTagName("i")[i].outerHTML)}; copy(linkarray);
-}`
+    `function collectIcons() {
+        var linkarray = []; 
+        for (let i=0; i < document.getElementsByTagName("i").length; i++) {
+            linkarray.push(document.getElementsByTagName("i")[i].outerHTML
+            )}; 
+        copy(linkarray);
+    }`
 
-which copied all the "i" html elements of displayed icons to the clipboard, which was then copied to Notepad++ and strigns were cleaned.
+which copied all the "i" html elements of displayed icons to the clipboard, which was then copied to Notepad++ and strings were cleaned.
 
 JavaScript and user story testing was conducted using [Jasmine](https://jasmine.github.io/) and [Jasmine jQuery](https://github.com/velesin/jasmine-jquery) testing frameworks.
 
