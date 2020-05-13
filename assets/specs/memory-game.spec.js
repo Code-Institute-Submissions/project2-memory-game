@@ -3,7 +3,7 @@ describe("Memory Game", function () {
     jasmine.getEnv().configure({ random: false }); //testing is supposed to test end-to-end user story, Jasmine's option to run tests in random order is disabled.
 
 
-    //Testing fitToScreen function: function should calculate width of square-shaped play board based on screen size
+    //Testing fitToScreen function: function should calculate width of square-shaped play board based on the screen size
     describe("fitToScreen Function", function () {
 
         beforeEach(function () {
@@ -12,24 +12,24 @@ describe("Memory Game", function () {
             fitScreen = new fitToScreen();
         });
 
-        describe("Should calculate the size of the game-board to fit the screen", function () {
+        describe("fitToScreen() function should calculate the size of the game-board to fit the screen", function () {
             it("Should be defined", function () {
                 expect(typeof fitToScreen).toBe('function');
             });
 
-            it("Screen with smaller height", function () {
+            it("Width of play board on the screen with smaller height", function () {
                 var result = fitToScreen(1000, 500);
                 expect(result).toBe('40%');
             });
 
-            it("Screen with smaller width", function () {
+            it("Widht of play board on the screen with smaller width", function () {
                 var result = fitToScreen(500, 1000);
                 expect(result).toBe('100%');
             });
         });
     });
 
-    //Testing adjustFotSize function: function should html root font size based on screen size
+    //Testing adjustFotSize function: function should calculate html root font size based on the screen size
     describe("adjustFontSize Function", function () {
 
         beforeEach(function () {
@@ -38,17 +38,17 @@ describe("Memory Game", function () {
             ajdustFont = new adjustFontSize();
         });
 
-        describe("Should calculate the root font size fit the screen", function () {
+        describe("adjustFontSize function should calculate the root font size to fit the screen", function () {
             it("Should be defined", function () {
                 expect(typeof adjustFontSize).toBe('function');
             });
 
-            it("Screen with smaller height", function () {
+            it("Root font size on screen with smaller height", function () {
                 var result = adjustFontSize(1000, 500);
                 expect(result).toBe('0.8vw');
             });
 
-            it("Screen with smaller width", function () {
+            it("Root font size on screen with smaller width", function () {
                 var result = adjustFontSize(500, 1000);
                 expect(result).toBe('2vw');
             });
@@ -131,6 +131,7 @@ describe("Memory Game", function () {
         });
     });
 
+    //createIntroPage function generates respective Intro Page html elements
     describe("createIntroPage function", function () {
 
         beforeEach(function () {
@@ -152,7 +153,7 @@ describe("Memory Game", function () {
                 expect(homeButton.style.visibility).toBe("hidden");
             });
 
-            it("Should create respective HTML elements with corresponding classes and ids", function () {
+            it("Should create respective HTML elements with corresponding classes and IDs", function () {
                 expect($('.introduction')).toExist();
                 expect($('#normalMode')).toExist();
                 expect($('#challengeMode')).toExist();
@@ -175,6 +176,7 @@ describe("Memory Game", function () {
         });
     });
 
+    //createDifficultyPage function generates respective Difficulty Page html elements
     describe("createDifficultyPage function", function () {
 
         beforeEach(function () {
@@ -281,13 +283,15 @@ describe("Memory Game", function () {
         });
     });
 
-    describe("createGamePage function and other related functions", function () {
+    //createGamePage calls sub-functions responsible for random selection of cards for the game and generates respective Game Page html elements
+    describe("createGamePage function and other related sub-functions", function () {
 
         beforeEach(function () {
             jasmine.getFixtures().fixturesPath = 'assets/specs/fixtures';
             loadFixtures('htmlFixture.html');
         });
 
+        //shuffleArray sub-function function randomly changes order of elements within array
         describe("My shuffleArray function", function () {
 
 
@@ -332,6 +336,7 @@ describe("Memory Game", function () {
             });
         });
 
+        //cardsArray sub-function generates random array of cards for the game, lenght of array corresponds to number of cards selected by the player (i.e. difficulty level)
         describe("My cardsArray function", function () {
 
             beforeEach(function () {
@@ -373,6 +378,7 @@ describe("Memory Game", function () {
 
         });
 
+        //createGamePage function generates respective Difficulty Page html elements
         describe("My createGamePage function", function () {
 
             beforeEach(function () {
@@ -380,6 +386,10 @@ describe("Memory Game", function () {
             });
 
             describe("Should create card elements in HTML", function () {
+                it("Should be defined", function () {
+                    expect(typeof createGamePage).toBe('function');
+                });
+                
                 it("Should set score board visibility to visible", function () {
                     expect(scoreBoard.style.visibility).toBe("visible");
                 });
@@ -388,19 +398,15 @@ describe("Memory Game", function () {
                     expect(homeButton.style.visibility).toBe("visible");
                 });
 
-                it("Should be defined", function () {
-                    expect(typeof createGamePage).toBe('function');
-                });
-
                 it("Should return error if argument (numberOfCards) is not passed", function () {
                     expect(function () { createGamePage() }).toThrow(Error('numberOfCards argument is not defined'));
                 });
 
-                it("Should argument must be divisible by 2", function () {
+                it("Passed argument must be divisible by 2", function () {
                     expect(function () { createGamePage(3) }).toThrow(Error('numberOfCards argument must be divisible by 2'));
                 });
 
-                it("Should create respective HTML elements with corresponding classes", function () {
+                it("Should create respective HTML elements with corresponding classes and attributes", function () {
                     game = new createGamePage(16);
                     expect($('.flipCardContainer').length).toBe(16);
                     expect($('.card').length).toBe(16);
@@ -424,7 +430,8 @@ describe("Memory Game", function () {
         });
     });
 
-    describe("Game logic", function () {
+    //testing Game logic - flipCard function, checkForMatch function, stopwatch function and timer function
+    describe("Game logic - flipCard function, checkForMatch function, stopwatch function and timer function", function () {
         beforeEach(function () {
             jasmine.getFixtures().fixturesPath = 'assets/specs/fixtures';
             loadFixtures('htmlFixture.html');
@@ -444,15 +451,16 @@ describe("Memory Game", function () {
             expect(checkForMatch).toHaveBeenCalled();
         });
 
-        it("Maximum two cards should be flipped at once", function () {
+        it("Maximum of two cards should be flipped at once", function () {
             checkForMatch = jasmine.createSpy();
             cardsChosen = ['a', 'b'];
             cardsChosenId = [0, 1];
             $('[data-id="0"]').click();
+            jasmine.clock().tick(1000);
             expect(checkForMatch).not.toHaveBeenCalled();
         });
 
-        it("Cards with same picture should disappear", function () {
+        it("Cards with same picture should disappear and score display should be updated", function () {
             cards = document.querySelectorAll('.flipCardContainer');
             cardsChosen = ['a', 'a'];
             cardsChosenId = ['0', '1'];
@@ -463,7 +471,7 @@ describe("Memory Game", function () {
             expect(failDisplay.textContent).toBe('0');
         });
 
-        it("Cards with different pictures should flip back", function () {
+        it("Cards with different pictures should flip back and score display should be updated", function () {
             cards = document.querySelectorAll('.flipCardContainer');
             cardsChosen = ['a', 'b'];
             cardsChosenId = ['0', '1'];
@@ -485,7 +493,7 @@ describe("Memory Game", function () {
             expect(createGameOverPage).toHaveBeenCalledWith('won');
         });
 
-        it("In 'Normal Mode', stopWatch() function should be called after the first card is flipped, timer() should not be called, other moves to be ignored", function () {
+        it("In 'Normal Mode', stopWatch() function should be called after the first card is flipped, timer() should not be called, other moves will not call stopWatch() again", function () {
             challengeMode = 0;
             firstMove = 0;
             stopWatch = jasmine.createSpy();
@@ -498,7 +506,7 @@ describe("Memory Game", function () {
             expect(firstMove).toBe(1);
         });
 
-        it("In 'Challenge Mode', stopWatch() and timer() function should be called after the first card is flipped, other moves to be ignored", function () {
+        it("In 'Challenge Mode', stopWatch() and timer() function should be called after the first card is flipped, other moves will not call stopWatch() and timer() again", function () {
             challengeMode = 1;
             firstMove=0;
             stopWatch = jasmine.createSpy();
@@ -511,7 +519,7 @@ describe("Memory Game", function () {
             expect(firstMove).toBe(1);
         });
 
-        it("After the first call, stopWatch() function should be called every second and update time display", function () {
+        it("After the first call, stopWatch() function should be called automatically every second and update Time Display in Normal Mode and save elapsed time to variable in Challenge Mode", function () {
             timeDisplay = $('#time');
             firstMove=0;
             challengeMode = 0;
@@ -535,7 +543,7 @@ describe("Memory Game", function () {
 
         });
 
-        it("After the first call, timer() function should be called every second and update time display; after set time expiry 'createGameOverPage()' function to be called.", function () {
+        it("In Challenge Mode after the first call, timer() function should be called every second and update time display; after set time expires 'createGameOverPage()' function to be called with 'lost' parameter.", function () {
             createGameOverPage = jasmine.createSpy();
             firstMove=0;
             challengeMode = 1;
@@ -551,6 +559,8 @@ describe("Memory Game", function () {
             $('[data-id="0"]').click();
             $('[data-id="1"]').click();
             $('[data-id="2"]').click();
+
+
             
             jasmine.clock().tick(6000);
             expect(timeDisplay.textContent).toBe('00:09:54');
@@ -562,9 +572,51 @@ describe("Memory Game", function () {
             expect(timeDisplay.textContent).toBe('EXPIRED');
             expect(createGameOverPage).toHaveBeenCalled;
             expect(createGameOverPage).toHaveBeenCalledWith('lost');
+        });
+    });
 
+    //createGameOverPage function generates respective Game Over Page html elements
+    describe("createGameOverPage function", function () {
+
+        beforeEach(function () {
+            jasmine.getFixtures().fixturesPath = 'assets/specs/fixtures';
+            loadFixtures('htmlFixture.html');
+            introPage = new createGameOverPage();
         });
 
+        describe("Should create Game Over page HTML elements", function () {
+            it("Should be defined", function () {
+                expect(typeof createGameOverPage).toBe('function');
+            });
+
+            it("Should set score board visibility to hidden", function () {
+                expect(scoreBoard.style.visibility).toBe("hidden");
+            });
+
+            it("Should set home button visibility to visible", function () {
+                expect(homeButton.style.visibility).toBe("visible");
+            });
+
+            it("Should create respective HTML elements with corresponding classes and IDs", function () {
+                expect($('.gameOver')).toExist();
+                expect($('.newGame')).toExist();
+            });
+
+            it("Click on 'New Game' button should take player to the IntroPage", function () {
+                expect($('.newGame')).toHaveAttr('href', 'index.html');
+            });
+
+            it("Should display 'Game Over' final score if createGameOverPage is called with attribute 'lost'", function() {
+                introPage = new createGameOverPage('lost');
+                expect($('.gameOver').html()).toContain('GAME OVER!');
+            })
+
+            it("Should display 'Contratulations' final score if createGameOverPage is called with attribute 'won'", function() {
+                introPage = new createGameOverPage('won');
+                expect($('.gameOver').html()).toContain('CONGRATULATIONS!');
+            })
+        });
     });
+
 });
 
