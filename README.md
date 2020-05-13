@@ -17,24 +17,24 @@ Responsive Web Demo GIF image was recorded using [Am I Responsive?](http://ami.r
 ### User stories
 
 Player wants to challenge his/her memory and have some fun. The game interface is interactive and responsive and guides player seamlessly through the game.
-The Intro screen provides player with the introduction to the game and allow him to select game mode: Normal Mode (game ends when all pairs are found) or Challenge Mode (player plays against the time).
-The Difficulty screen allows player to select number of cards. By clicking on any of the available options, player is then taken directly to the game. After flipping the first card, the time starts counting (up in the Normal Mode, down in the Challenge Mode).
-After game is finished, Game Over screen is shown with basic statistics on the finished game. 
-Player can anytime return to the Intro screen by clicking on Home Button (cross in the upper right corner of the screen).  
+The Intro screen provides player with the introduction to the game and allow him to select game mode: Normal Mode (the game ends when all pairs are found) or Challenge Mode (player plays against the time).
+The Difficulty screen allows player to select number of cards. By clicking on any of the available options, player is taken directly to the game. After flipping the first card, the time starts counting (up in the Normal Mode, down in the Challenge Mode).
+After game is finished, Game Over screen is shown with basic statistics of the finished game. 
+Player can anytime return to the Intro screen by clicking on Home Button (cross in the upper right corner of the screen) or on Game Logo in the upper left corner.  
 
-Intro Page:
+##### Intro Page:
 
 ![Intro Page](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/introPage.jpg "Intro Page")
 
-Difficulty Page:
+##### Difficulty Page:
 
 ![Difficulty Page](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/difficultyPage.jpg "Difficulty Page")
 
-Game Page:
+##### Game Page:
 
 ![Difficulty Page](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/gamePage.jpg "Game Page")
 
-Game Over Page:
+##### Game Over Page:
 
 ![Game Over Page](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/gameOverPage.jpg "Game Over Page")
 
@@ -46,11 +46,11 @@ Game has been designed while keeping mobile devices in mind providing players wi
 To challenge players memory and provide him with multiple game difficulty options.
 
 ### Structure
-Game is logically structured to 4 screens:
-* Intro Screen - providing player with basic information about the game and allowing player to select game mode
-* Difficulty Screen - allowing player to select difficulty level
-* Game Screen - game itself
-* Game Over Screen - summary screen of the finished game
+Game is logically structured to 4 pages:
+* Intro Page - providing player with basic information about the game and allowing player to select game mode
+* Difficulty Page - allowing player to select difficulty level
+* Game Page - game itself
+* Game Over Page - summary screen of the finished game
 
 ### Skeleton
 [Website wireframe](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/wireframes/wireframes.pdf)
@@ -74,19 +74,21 @@ Green color scheme.
 * Fully JavaScript powered
 * Two game modes
 * Four game difficulty levels
-* Each game randomly generated from the library of 1588 Font Awesome free icons
+* Each game randomly generated from the library of 1,588 Font Awesome free icons
 * Game Over statistics
+* Time functions (game stopwatch and timer)
+* JavaScript code tested by Jasmine and Jasmine jQuery automated tests
 
 ## Testing
 
 ### Code validity
 * HTML was tested via W3C Markup Validation Service
 * CSS was tested via W3C CSS Validation Service
-* JavaScript development is documented and tested using Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/SpecRunner.html)
+* JavaScript development is documented and automatically tested using Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/SpecRunner.html)
 
 ### User story
 * User story and all the game features were tested manually. 
-* User story was tested by Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/SpecRunner.html)
+* User story was automatically tested by Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/SpecRunner.html)
 
 ### Browsers and devices
 * Responsiveness  has been tested using Inspect feature of Chrome and also on [Am I Responsive?](http://ami.responsivedesign.is) website.
@@ -113,7 +115,7 @@ Images were resized to fit the website design and to reduce website loading time
 ### Acknowledgements
 CSS flip card effect was created based on the YouTube video tutorial and adjusted to meet the game requirements [YouTube](https://www.youtube.com/watch?v=Lc6wyl1KdOc).
 
-All used icons come from [Font Awesome](https://fontawesome.com/) version 5.13.0. Icons were collected from [Font Awesome Free Gallery](https://fontawesome.com/icons?d=gallery&m=free) via console using following function
+All used icons come from [Font Awesome](https://fontawesome.com/) version 5.13.0. Icons were collected from [Font Awesome Free Icon Library](https://fontawesome.com/icons?d=gallery&m=free) via console using following function
 
     `function collectIcons() {
         var linkarray = []; 
