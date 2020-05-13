@@ -125,26 +125,43 @@ header {
     margin: auto;
 }
 
+.score-board tr {
+    height: 50px;
+}
+
+.time-cell {
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.score-cell {
+    vertical-align: top;
+    text-align: center;
+}
+
 /* Score Board - time*/
 .score-board h2 {
     width: 100%;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 500;
-    margin-top: 15px;
-    margin-bottom: 5px;
     text-align: center;
-    vertical-align: middle;
 }
 
 /* Score Board - score - successful/failed moves*/
 .score-board h5 {
     width: 100%;
-    font-size: 15px;
-    margin-top: 0px;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
     font-weight: 500;
     text-align: center;
-    vertical-align: middle;
+}
+
+@media only screen and (max-width: 650px) {
+    .score-board h2 {
+        font-size: 16px;
+    }
+    .score-board h5 {
+        font-size: 14px;
+    }
 }
 
 /* Exit/Home button */
@@ -365,6 +382,8 @@ header {
 }
 
 .newGame h4 {
+    font-size: 2rem;
+    padding-top: 0.5rem;
     text-align: center;
     margin: auto;
     color: #eee;
