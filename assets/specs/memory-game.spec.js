@@ -430,7 +430,7 @@ describe("Memory Game", function () {
         });
     });
 
-    //testing Game logic - flipCard function, checkForMatch function, stopwatch function and timer function
+    //Testing Game logic - flipCard function, checkForMatch function, stopwatch function and timer function
     describe("Game logic - flipCard function, checkForMatch function, stopwatch function and timer function", function () {
         beforeEach(function () {
             jasmine.getFixtures().fixturesPath = 'assets/specs/fixtures';
@@ -617,6 +617,5 @@ describe("Memory Game", function () {
             })
         });
     });
-
 });
 
