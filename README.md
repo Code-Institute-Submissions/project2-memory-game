@@ -7,7 +7,7 @@ This game was developed for players who want to challenge their memory and have 
 ## Demo
 A live demo of the website has been developed  [here](https://milan-stefanik.github.io/project2-memory-game/).
 
-![Responsive Web Demo](https://milan-stefanik.github.io/project2-memory-game/raw/master/assets/images/demo.gif "Responsive Web Demo")
+![Responsive Web Demo](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/demo.gif "Responsive Web Demo")
 
 Responsive Web Demo GIF image was recorded using [Am I Responsive?](http://ami.responsivedesign.is) website. 
 
@@ -24,19 +24,19 @@ Player can anytime return to the Intro screen by clicking on Home Button (cross 
 
 Intro Page:
 
-![Intro Page](https://milan-stefanik.github.io/project2-memory-game/raw/master/assets/images/introPage.jpg "Intro Page")
+![Intro Page](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/introPage.jpg "Intro Page")
 
 Difficulty Page:
 
-![Difficulty Page](https://milan-stefanik.github.io/project2-memory-game/raw/master/assets/images/difficultyPage.jpg "Difficulty Page")
+![Difficulty Page](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/difficultyPage.jpg "Difficulty Page")
 
 Game Page:
 
-![Difficulty Page](https://milan-stefanik.github.io/project2-memory-game/raw/master/assets/images/gamePage.jpg "Game Page")
+![Difficulty Page](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/gamePage.jpg "Game Page")
 
 Game Over Page:
 
-![Game Over Page](https://milan-stefanik.github.io/project2-memory-game/raw/master/assets/images/gameOverPage.jpg "Game Over Page")
+![Game Over Page](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/gameOverPage.jpg "Game Over Page")
 
 
 ### Strategy
@@ -53,7 +53,7 @@ Game is logically structured to 4 screens:
 * Game Over Screen - summary screen of the finished game
 
 ### Skeleton
-[Website wireframe](https://milan-stefanik.github.io/project2-memory-game/raw/master/assets/wireframes/wireframes.pdf)
+[Website wireframe](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/wireframes/wireframes.pdf)
 
 ### Surface
 Greenscale colorscheme.
@@ -82,11 +82,11 @@ Greenscale colorscheme.
 ### Code validity
 * HTML was tested via W3C Markup Validation Service
 * CSS was tested via W3C CSS Validation Service
-* JavaScript development is documented and tested using Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/raw/master/SpecRunner.html)
+* JavaScript development is documented and tested using Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/SpecRunner.html)
 
 ### User story
 * User story and all the game features were tested manually. 
-* User story was tested by Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/raw/master/SpecRunner.html)
+* User story was tested by Jasmine and Jasmine jQuery testing frameworks [Jasmine Test Log](https://milan-stefanik.github.io/project2-memory-game/SpecRunner.html)
 
 ### Browsers and devices
 * Responsivness has been tested using Inspect feature of Chrome and also on [Am I Responsive?](http://ami.responsivedesign.is) website.
@@ -113,7 +113,7 @@ Images were resized to fit the website design and to reduce website loading time
 ### Acknowledgements
 CSS flip card effect was created based on the YouTube video tutorial and adjusted to meet the game requirements [YouTube](https://www.youtube.com/watch?v=Lc6wyl1KdOc).
 
-All used icons come from [Font Awesome](https://fontawesome.com/) version 5.13.0. Icons were collected from 'https://fontawesome.com/icons?d=gallery&m=free' via console using following function
+All used icons come from [Font Awesome](https://fontawesome.com/) version 5.13.0. Icons were collected from [Font Awesome Free Galery](https://fontawesome.com/icons?d=gallery&m=free) via console using following function
 
 `function collectIcons() {
   var linkarray = []; for (let i=0; i < document.getElementsByTagName("i").length; i++) {linkarray.push(document.getElementsByTagName("i")[i].outerHTML)}; copy(linkarray);

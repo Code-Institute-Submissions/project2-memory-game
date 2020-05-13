@@ -83,29 +83,37 @@ header {
     height: 100%;
     margin: 0;
     float: left;
-    display: flex;
+    display: table;
     justify-content: left;
     align-items: center;
     color: white;
 }
 
 /*Logo text to be hidden on screens with widht of less than 650px*/
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 750px) {
     .logo-text {
         display: none;
     }
 }
 
 /*logo first line*/
-.logo h1 {
-    margin: 0;
-    font-size: 30px;
+.logo-text div {
+    display: table-row;
+    height: 50%;
+}
+
+.logo-text div h1 {
+    height: 50px;
+    padding-top: 15px;
+    font-size: 25px;
     font-weight: 700;
 }
 
 /*logo second line*/
-.logo span {
-    font-size: 25px;
+.logo-text div p {
+    height: 50px;
+    padding-bottom: 15px;
+    font-size: 21px;
     font-weight: 300;
 }
 
@@ -238,6 +246,8 @@ header {
 }
 
 .button h4 {
+    font-size: 2rem;
+    padding-top: 0.5rem;
     text-align: center;
     margin: auto;
     color: #eee;
@@ -315,6 +325,8 @@ header {
 }
 
 .difficulty1 h2, .difficulty2 h2, .difficulty3 h2, .difficulty4 h2 {
+    font-size: 2rem;
+    padding-top: 1rem;
     text-align: center;
     margin: auto;
     color: #eee;
