@@ -99,13 +99,13 @@ header {
 /*logo first line*/
 .logo h1 {
     margin: 0;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 700;
 }
 
 /*logo second line*/
 .logo span {
-    font-size: 15px;
+    font-size: 25px;
     font-weight: 300;
 }
 
