@@ -7,7 +7,7 @@ This game was developed for players who want to challenge their memory and have 
 ## Demo
 A live demo of the website has been developed  [here](https://milan-stefanik.github.io/project2-memory-game/).
 
-![Responsive Web Demo](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/demo.gif "Responsive Web Demo")
+![Responsive Web Demo](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/demo.gif "Responsive Web Demo")
 
 Responsive Web Demo GIF image was recorded using [Am I Responsive?](http://ami.responsivedesign.is) website. 
 
@@ -24,19 +24,19 @@ Player can anytime return to the Intro screen by clicking on Home Button (cross 
 
 Intro Page:
 
-![Intro Page](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/introPage.jpg "Intro Page")
+![Intro Page](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/introPage.jpg "Intro Page")
 
 Difficulty Page:
 
-![Difficulty Page](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/difficultyPage.jpg "Difficulty Page")
+![Difficulty Page](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/difficultyPage.jpg "Difficulty Page")
 
 Game Page:
 
-![Difficulty Page](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/gamePage.jpg "Game Page")
+![Difficulty Page](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/gamePage.jpg "Game Page")
 
 Game Over Page:
 
-![Game Over Page](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/images/gameOverPage.jpg "Game Over Page")
+![Game Over Page](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/images/gameOverPage.jpg "Game Over Page")
 
 
 ### Strategy
@@ -53,7 +53,7 @@ Game is logically structured to 4 screens:
 * Game Over Screen - summary screen of the finished game
 
 ### Skeleton
-[Website wireframe](https://milan-stefanik.github.io/project2-memory-game/blob/master/assets/wireframes/wireframes.pdf)
+[Website wireframe](https://github.com/milan-stefanik/project2-memory-game/blob/master/assets/wireframes/wireframes.pdf)
 
 ### Surface
 Greenscale colorscheme.
