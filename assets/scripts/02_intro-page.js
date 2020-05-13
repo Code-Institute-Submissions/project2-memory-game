@@ -22,6 +22,7 @@ function createIntroPage() {
                                 <p><b>Normal Mode:</b> Player is not limited by time.</p>\
                                 <p><b>Challenge Mode:</b> Player plays against a time limit.</p\
                                 <p>Game also offers 4 difficulty levels defined by a number of cards.</p>\
+                                <p>Game does not support Internet Explorer, please use other browser.</p>\
                                 <br>\
                                 <h5>Challenge your memory and have fun!</h5>\
                                 <br>\

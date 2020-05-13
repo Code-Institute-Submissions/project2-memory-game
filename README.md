@@ -92,8 +92,8 @@ Green color scheme.
 
 ### Browsers and devices
 * Responsiveness  has been tested using Inspect feature of Chrome and also on [Am I Responsive?](http://ami.responsivedesign.is) website.
-* Website has been tested on iPhone XS plus. Other mobile devices screen sizes were emulated via Chrome Inspect feature.
-* Website has been tested on multiple browsers (Chrome, Safari, Internet Explorer, Edge, Opera and Firefox).
+* Website has been tested on iPhone XS plus using Chrome and Safari browsers. Other mobile devices screen sizes were emulated via Chrome Inspect feature.
+* Website has been tested on multiple browsers in Windows (Chrome, Opera, Edge, Firefox) and multiple browsers in MacOs (Safari and Chrome). Firefox had problems with flip card css feature, the problem has been solved. Game does not support Internet Explorer. 
 
 
 ## Deployment
