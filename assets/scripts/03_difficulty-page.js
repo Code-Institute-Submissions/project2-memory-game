@@ -14,7 +14,7 @@ function createDifficultyPage() {
     //Creating '16 cards' button and defining button features
     difficulty1.setAttribute('class', 'difficulty1');
     difficulty1.innerHTML = '<h2>16 cards</h2>';
-    difficulty1.addEventListener('click', () => {
+    difficulty1.addEventListener('click', function() {
         grid.innerHTML = "";
         createGamePage(16);
 
@@ -25,14 +25,14 @@ function createDifficultyPage() {
             hoursToGo = 0;
             totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo;
             timeDisplay.textContent = '00:01:00';
-        };
+        }
     });
     grid.appendChild(difficulty1);
 
     //Creating '36 cards' button and defining button features
     difficulty2.setAttribute('class', 'difficulty2');
     difficulty2.innerHTML = '<h2>36 cards</h2>';
-    difficulty2.addEventListener('click', () => {
+    difficulty2.addEventListener('click', function() {
         grid.innerHTML = "";
         createGamePage(36);
 
@@ -43,7 +43,7 @@ function createDifficultyPage() {
             hoursToGo = 0;
             totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo;
             timeDisplay.textContent = '00:02:00';
-        };
+        }
     });
     grid.appendChild(difficulty2);
 
@@ -51,7 +51,7 @@ function createDifficultyPage() {
     //Creating '64 cards' button and defining button features
     difficulty3.setAttribute('class', 'difficulty3');
     difficulty3.innerHTML = '<h2>64 cards</h2>';
-    difficulty3.addEventListener('click', () => {
+    difficulty3.addEventListener('click', function() {
         grid.innerHTML = "";
         createGamePage(64);
 
@@ -62,14 +62,14 @@ function createDifficultyPage() {
             hoursToGo = 0;
             totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo;
             timeDisplay.textContent = '00:04:00';
-        };
+        }
     });
     grid.appendChild(difficulty3);
 
     //Creating '100 cards' button and defining button features
     difficulty4.setAttribute('class', 'difficulty4');
     difficulty4.innerHTML = '<h2>100 cards</h2>';
-    difficulty4.addEventListener('click', () => {
+    difficulty4.addEventListener('click', function() {
         grid.innerHTML = "";
         createGamePage(100);
 
@@ -80,7 +80,7 @@ function createDifficultyPage() {
             hoursToGo = 0;
             totalTimeToGo = hoursToGo * 3600 + minutesToGo * 60 + secondsToGo;
             timeDisplay.textContent = '00:07:00';
-        };
+        }
     });
     grid.appendChild(difficulty4);
 }

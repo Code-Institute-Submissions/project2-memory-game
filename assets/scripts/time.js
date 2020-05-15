@@ -40,10 +40,10 @@ function add() {
 
     //If game is in challenge mode, time elapsed is only saved to variable for the game over summary. Otherwise, time elapsed is both saved and presented on the score-board
     if (challengeMode == 1) {
-        timeElapsed = (hoursElapsed ? (hoursElapsed > 9 ? hoursElapsed : "0" + hoursElapsed) : "00") + ":" + (minutesElapsed ? (minutesElapsed > 9 ? minutesElapsed : "0" + minutesElapsed) : "00") + ":" + (secondsElapsed > 9 ? secondsElapsed : "0" + secondsElapsed)
+        timeElapsed = (hoursElapsed ? (hoursElapsed > 9 ? hoursElapsed : "0" + hoursElapsed) : "00") + ":" + (minutesElapsed ? (minutesElapsed > 9 ? minutesElapsed : "0" + minutesElapsed) : "00") + ":" + (secondsElapsed > 9 ? secondsElapsed : "0" + secondsElapsed);
     } else {
-        timeDisplay.textContent = (hoursElapsed ? (hoursElapsed > 9 ? hoursElapsed : "0" + hoursElapsed) : "00") + ":" + (minutesElapsed ? (minutesElapsed > 9 ? minutesElapsed : "0" + minutesElapsed) : "00") + ":" + (secondsElapsed > 9 ? secondsElapsed : "0" + secondsElapsed)
-        timeElapsed = (hoursElapsed ? (hoursElapsed > 9 ? hoursElapsed : "0" + hoursElapsed) : "00") + ":" + (minutesElapsed ? (minutesElapsed > 9 ? minutesElapsed : "0" + minutesElapsed) : "00") + ":" + (secondsElapsed > 9 ? secondsElapsed : "0" + secondsElapsed)
+        timeDisplay.textContent = (hoursElapsed ? (hoursElapsed > 9 ? hoursElapsed : "0" + hoursElapsed) : "00") + ":" + (minutesElapsed ? (minutesElapsed > 9 ? minutesElapsed : "0" + minutesElapsed) : "00") + ":" + (secondsElapsed > 9 ? secondsElapsed : "0" + secondsElapsed);
+        timeElapsed = (hoursElapsed ? (hoursElapsed > 9 ? hoursElapsed : "0" + hoursElapsed) : "00") + ":" + (minutesElapsed ? (minutesElapsed > 9 ? minutesElapsed : "0" + minutesElapsed) : "00") + ":" + (secondsElapsed > 9 ? secondsElapsed : "0" + secondsElapsed);
     }
 
     stopWatch();

@@ -24,12 +24,14 @@ var firstMove = 0;  //variable for indicating if the first move has been played,
 var secondsElapsed = 0;
 var minutesElapsed = 0;
 var hoursElapsed = 0;
+var sw;
 
 //timer variables
 var secondsToGo;
 var minutesToGo;
 var hoursToGo;
-
+var totalTimeToGo;
+var t;
 
 /*Font Awesome Free Icons array - based on version 5.13.0, 1588 free icons
 Icons were collected from 'https://fontawesome.com/icons?d=gallery&m=free' via console using following function

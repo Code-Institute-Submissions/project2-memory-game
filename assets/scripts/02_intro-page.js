@@ -13,6 +13,7 @@ function createIntroPage() {
 
     //Creating Game Intro text container including text content
     introduction.setAttribute('class', 'introduction');
+    /*jshint multistr: true */
     introduction.innerHTML = '<h2><i class="fab fa-font-awesome" style = "font-size: 8rem; color: rgb(0,150,0); margin: 10px;"></i></h2>\
                                 <h3>Welcome to Font Awesome Memory Challenge!</h3>\
                                 <br>\
@@ -52,6 +53,6 @@ function NormalMode() {
 
 //Challenge Mode Selected
 function ChallengeMode() {
-    challengeMode = 1
+    challengeMode = 1;
     createDifficultyPage(); //Open Difficulty Page
 }
