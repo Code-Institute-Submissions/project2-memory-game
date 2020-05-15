@@ -305,7 +305,7 @@ describe("Memory Game", function () {
                 });
 
                 it("Should return error if argument (array) is not passed", function () {
-                    expect(function () { shuffleArray() }).toThrow(Error('array argument is not defined'));
+                    expect(function () { shuffleArray();}).toThrow(Error('array argument is not defined'));
                 });
 
                 it("Should return array", function () {
@@ -316,7 +316,7 @@ describe("Memory Game", function () {
 
                 it("Should return shuffled array", function () {
                     var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-                    var arrayString = array.toString()
+                    var arrayString = array.toString();
                     var shuffledArrayString = shuffleArray(array).toString();
                     expect(arrayString === shuffledArrayString).toBe(false);
                 });
@@ -349,11 +349,11 @@ describe("Memory Game", function () {
                 });
 
                 it("Should return error if argument (numberOfCards) is not passed", function () {
-                    expect(function () { cardsArray() }).toThrow(Error('numberOfCards argument is not defined'));
+                    expect(function () { cardsArray(); }).toThrow(Error('numberOfCards argument is not defined'));
                 });
 
                 it("numberOfCards argument must be divisible by 2", function () {
-                    expect(function () { cardsArray(3) }).toThrow(Error('numberOfCards argument must be divisible by 2'));
+                    expect(function () { cardsArray(3); }).toThrow(Error('numberOfCards argument must be divisible by 2'));
                 });
 
                 it("Length of Cards array should be equal to 'numberOfCards' argument", function () {
@@ -399,11 +399,11 @@ describe("Memory Game", function () {
                 });
 
                 it("Should return error if argument (numberOfCards) is not passed", function () {
-                    expect(function () { createGamePage() }).toThrow(Error('numberOfCards argument is not defined'));
+                    expect(function () { createGamePage(); }).toThrow(Error('numberOfCards argument is not defined'));
                 });
 
                 it("Passed argument must be divisible by 2", function () {
-                    expect(function () { createGamePage(3) }).toThrow(Error('numberOfCards argument must be divisible by 2'));
+                    expect(function () { createGamePage(3); }).toThrow(Error('numberOfCards argument must be divisible by 2'));
                 });
 
                 it("Should create respective HTML elements with corresponding classes and attributes", function () {
@@ -570,7 +570,7 @@ describe("Memory Game", function () {
 
             jasmine.clock().tick(1000);
             expect(timeDisplay.textContent).toBe('EXPIRED');
-            expect(createGameOverPage).toHaveBeenCalled;
+            expect(createGameOverPage).toHaveBeenCalled();
             expect(createGameOverPage).toHaveBeenCalledWith('lost');
         });
     });
@@ -609,12 +609,12 @@ describe("Memory Game", function () {
             it("Should display 'Game Over' final score if createGameOverPage is called with attribute 'lost'", function() {
                 introPage = new createGameOverPage('lost');
                 expect($('.gameOver').html()).toContain('GAME OVER!');
-            })
+            });
 
             it("Should display 'Contratulations' final score if createGameOverPage is called with attribute 'won'", function() {
                 introPage = new createGameOverPage('won');
                 expect($('.gameOver').html()).toContain('CONGRATULATIONS!');
-            })
+            });
         });
     });
 });
